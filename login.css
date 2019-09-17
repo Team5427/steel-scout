@@ -1,0 +1,53 @@
+
+/* Set a style for the submit/register button */
+.loginbtn {
+  background-color: #4d4dff;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.loginbtn:hover {
+  opacity:1;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.login_form{
+  width: 90%;
+  margin: 10px auto;
+}
+
+#id_stay_in_div{
+  width: 100%;
+  padding: 15px;
+  padding-left: 10px; 
+  margin: 0px 0px 22px 0px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  font-size: 12px; 
+  height: 23px; 
+}
+
+#id_stay_in_lbl{
+  height: 15px;
+  vertical-align: middle; 
+}
+
+#id_stay_in_cb{
+  height: 14px; 
+  vertical-align: middle; 
+}
+
+#login_error_message_id{
+  color: #ef2323; 
+}
