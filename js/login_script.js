@@ -54,7 +54,7 @@ $("#login_submit_button_id").click(function(){
 		        		deleteCookie("persistent_auth_token"); 
 		        		setAuthCookieAutoExp(email); 
 		        	}
-		        	window.location.assign("http://localhost:8090/CWI_SITE/index.html");
+		        	window.location.assign("http://localhost:8090/steel-scout-middleend/index.html");
 		        }
 		    },
 		    error: function(jqXHR, textStatus, errorThrown, result) {
@@ -76,7 +76,7 @@ $("#login_submit_button_id").click(function(){
 function setAuthCookieAutoExp(email)
 {
 	$.ajax({
-	    url:'http://127.0.0.1:8090/CWI_PHP/set_auth_token.php',
+	    url:'http://127.0.0.1:8090/steel-scout-middleend/set_auth_token.php',
 	    data: {email: email},
 	    type: "POST", //or type:"GET" or type:"PUT"
 	    success: function (result) {
@@ -101,7 +101,7 @@ function setAuthCookieAutoExp(email)
 function setAuthCookiePersistent(email)
 {
 	$.ajax({
-	    url:'http://127.0.0.1:8090/CWI_PHP/set_auth_token.php',
+	    url:'http://127.0.0.1:8090/steel-scout-middleend/set_auth_token.php',
 	    data: {email: email},
 	    type: "POST", //or type:"GET" or type:"PUT"
 	    success: function (result) {
