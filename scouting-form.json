@@ -1,0 +1,49 @@
+{
+    "items": [
+        {
+            "field": "Team Number",
+            "type": "int"
+        },
+        {
+            "field": "Alliance",
+            "type": "switch",
+            "options":[
+                "Red",
+                "Blue"
+            ]
+        },
+        {
+            "field": "Cargo Lvl 3",
+            "type": "counter"
+        },
+        {
+            "field": "Cargo Lvl 2",
+            "type": "counter"
+        },
+        {
+            "field": "Cargo Lvl 1",
+            "type": "counter"
+        },
+        {
+            "field": "Hatch Lvl 3",
+            "type": "counter"
+        },
+        {
+            "field": "Hatch Lvl 2",
+            "type": "counter"
+        },
+        {
+            "field": "Hatch Lvl 1",
+            "type": "counter"
+        },
+        {
+            "field": "HAB",
+            "type": "MC",
+            "options":[
+                "Level 1",
+                "Level 2",
+                "Level 3"
+            ]
+        }
+    ]
+}
