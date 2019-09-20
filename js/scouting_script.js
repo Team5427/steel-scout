@@ -15,28 +15,36 @@ function loadForm(){
                     container.appendChild(document.createElement("br"));
                     break;
                 case "switch":
-                    var input = document.createElement("input");
-                    var input2 = document.createElement("input");
+                    var div = document.createElement("div");
+                    div.classList.add("binary-switch");
 
-                    input.type = "radio";
-                    input.name = element.field;
-                    input.value = element.options[0];
+                    divInside = document.createElement("div");
+                    var s1 =  document.createElement("label");
+                    s1.classList.add("switch-label");
+                    s1.innerHTML = element.options[0];
+                    divInside.appendChild(s1);
+                    div.appendChild(divInside);
 
-                    input2.type = "radio";
-                    input2.name = element.field;
-                    input2.value = element.options[1];
+                    divInside = document.createElement("div");
+                    var label = document.createElement("label");
+                    label.classList.add("switch");
+                    var input  = document.createElement("input");
+                    input.type = "checkbox";
+                    var span = document.createElement("span");
+                    span.classList.add("slider");
+                    label.append(input);
+                    label.append(span);
+                    divInside.appendChild(label);
+                    div.appendChild(divInside);
 
-                    var label1 = document.createElement("label");
-                    label1.innerHTML = element.options[0];
-                    container.appendChild(label1);
+                    divInside = document.createElement("div");
+                    var s2 =  document.createElement("label");
+                    s2.classList.add("switch-label")
+                    s2.innerHTML = element.options[1];
+                    divInside.appendChild(s2);
+                    div.appendChild(divInside);
 
-                    container.appendChild(input);
-
-                    var label2 = document.createElement("label");
-                    label2.innerHTML = element.options[1];
-                    container.appendChild(label2);
-                    
-                    container.appendChild(input2);
+                    container.appendChild(div);
                     container.appendChild(document.createElement("br"));
                     break;
                 case "counter":
@@ -51,11 +59,12 @@ function loadForm(){
                     container.appendChild(dec);
                     container.appendChild(document.createElement("br"));
                     break;
+
                 case "MC":
                     var label = document.createElement("label");
                     label.innerHTML = element.field;
                     container.appendChild(label)
-                    
+                    container.appendChild(document.createElement("br"));
                     element.options.forEach(option =>{
                         var label = document.createElement("label");
                         label.innerHTML = option;
