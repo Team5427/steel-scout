@@ -77,6 +77,15 @@ function loadForm(){
                         container.appendChild(document.createElement("br"));
                     })
                     break;
+                case "text":
+                    var label = document.createElement("label");
+                    label.innerHTML = element.field;
+                    container.appendChild(label);
+                    container.appendChild(document.createElement("br"));
+                    var input = document.createElement("input");
+                    input.type = "text";
+                    container.appendChild(input);
+                    break;
                 default:
                     break;
             }
