@@ -1,5 +1,5 @@
 function loadForm(){
-    $.getJSON('./scouting-form.json', function(data) {
+    $.getJSON('./pit-scouting.json', function(data) {
         formElements = data.items;
         var container = document.getElementById("formContainer");
         formElements.forEach(element => {
@@ -61,8 +61,6 @@ function loadForm(){
                     break;
 
                 case "MC":
-                    var div = document.createElement("div");
-
                     var label = document.createElement("label");
                     label.innerHTML = element.field;
                     container.appendChild(label)
@@ -94,79 +92,3 @@ function loadForm(){
         })
     });
 }
- 
-$("#scouting_submit").click(function(){ 
-	event.preventDefault();
-	var error_msg = ''; 
-	$("#scouting_error_message").html(error_msg); 
-
-	//reset the color of all the inputs in case there was an error
-	$("#login_email_label_id").css('color', 'black');
-	$("#login_password_label_id").css('color', 'black');
-
-	//check for errors
-	if($("#login_email_input_id").val()=='' || $("#login_password_input_id").val()=='' )
-	{
-		error_msg = 'The following mandatory fields are incomplete: '; 
-
-		if($("#login_email_input_id").val()=='')
-		{
-			error_msg += '</br>&nbsp;&nbsp;&nbsp;&nbsp;Email '; 
-			$("#login_email_label_id").css('color', '#ef2323');
-		}
-		if($("#login_password_input_id").val()=='')
-		{
-			error_msg += '</br>&nbsp;&nbsp;&nbsp;&nbsp;Password '; 
-			$("#login_password_label_id").css('color', '#ef2323');
-		}
-		$("#scouting_error_message").html(error_msg); 
-		window.scrollTo(0, 0);
-	}
-	else
-	{
-		var email = $("#login_email_input_id").val(); 
-		var password = $("#login_password_input_id").val();
-
-	    $.ajax({
-		    url:'http://127.0.0.1:8090/steel-scout-middleend/login.php',
-		    data: {email: email, password: password},
-		    type: "POST", //or type:"GET" or type:"PUT"
-		    success: function (result) {
-		    	console.log(result); 
-		        if(result=="Incorrect email or password")
-		        {
-		        	$("#login_error_message_id").html("Incorrect email or password"); 
-		        }    
-		        else
-		        {
-		        	if ($('#id_stay_in_cb').is(':checked')) 
-		        	{
-		        		deleteCookie("reg_auth_token"); 
-		        		deleteCookie("persistent_auth_token"); 
-		        		setAuthCookiePersistent(email); 
-		        	}
-		        	else
-		        	{
-		        		deleteCookie("reg_auth_token"); 
-		        		deleteCookie("persistent_auth_token"); 
-		        		setAuthCookieAutoExp(email); 
-		        	}
-		        	window.location.assign("http://localhost:8090/steel-scout-middleend/index.html");
-		        }
-		    },
-		    error: function(jqXHR, textStatus, errorThrown, result) {
-	                alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
-
-	                $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
-	                console.log('jqXHR:');
-	                console.log(jqXHR);
-	                console.log('textStatus:');
-	                console.log(textStatus);
-	                console.log('errorThrown:');
-	                console.log(errorThrown);
-	                console.log('JSON return string: '); 
-	                console.log(result); 
-	            },
-		});
-	}
-});
