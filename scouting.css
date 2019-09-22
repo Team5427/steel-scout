@@ -87,6 +87,26 @@
     opacity:1;
   }
 
+  .s
+  pitScoutSubmitButton{
+    background-color: #4d4dff;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  .pitScoutSubmitButton:hover {
+    opacity:1;
+  }
+
   #scout_error_message_id{
+    color: #ef2323; 
+  }
+
+  #pit_scout_error_message_id{
     color: #ef2323; 
   }

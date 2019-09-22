@@ -1,7 +1,9 @@
+var container;
+
 function loadForm(){
     $.getJSON('./pit-scouting.json', function(data) {
         formElements = data.items;
-        var container = document.getElementById("formContainer");
+        container = document.getElementById("pitFormContainer");
         formElements.forEach(element => {
             switch(element.type){
                 case "int":
@@ -92,3 +94,47 @@ function loadForm(){
         })
     });
 }
+
+$("#pit_scouting_submit_button").click(function(){
+    event.preventDefault();
+    var errorMessage = " ";
+    var nodeList = document.querySelectorAll("text");
+    var intList = document.querySelectorAll("int");
+    var listLen = nodeList.length;
+    var intLen = intList.length;
+    var error = false;
+    var errorMessage = '';
+    for(var i = 0; i<listLen; i++)
+    {
+        nodeList[i].css('color', 'black');
+    }
+    for(var i = 0; i<intLen; i++)
+    {
+        nodeList[i].css('color', 'black');
+    }
+
+    for(var i = 0; i<listLen; i++)
+    {
+        if(nodeList[i].val() == '')
+        {
+            error = true;
+            nodeList[i].css('color', '#ef2323');
+        }
+    }
+    for(var i = 0; i<intLen; i++)
+    {
+        if(intList[i].val() == '')
+        {
+            error = true;
+            intList[i].css('color', '#ef2323');
+        }
+    }
+
+    if(error)
+    {
+        errorMessage = "Please complete all fields before submitting.";
+    }
+
+    $("#pit_scout_form_error_message_id").html(errorMessage);
+    window.scrollTo(0, 0);
+});
