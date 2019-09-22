@@ -2,19 +2,25 @@
 <html>
     <head>
         <link rel = "stylesheet" text = "text/css" href = "forms.css">
-        <link rel = "stylesheet" text = "text/css" href = "pit_scouting.css">
+        <link rel = "stylesheet" text = "text/css" href = "scouting.css">
         <link rel = "stylesheet" text = "text/css" href = "index.css">
-        <script type = "text/javascript" src = "js/scouting_script.js"></script>
+        <script type = "text/javascript" src = "js/pit_scouting_script.js"></script>
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     </head>
 
     <body>
 
         <form id = "formContainer"> <!--ID is used by JS file to create HTML form-->
-            <h1>Pit Scouting</h1>
-            <br/>
-            <hr>
-            <script>loadForm()</script>
+            <div id = "pitFormID" class = "pitFormContainer">
+                <h1>Pit Scouting</h1>
+                <p id = "scout_form_error_message_id"></p>
+                <hr>
+
+                <script>loadForm()</script>
+                <hr>
+
+                <button id = "scouting_submit_button" class = "scoutSubmitButtom">Submit</button>
+            </div>
         </form>
     </body>
 
