@@ -7,8 +7,10 @@ function loadForm(){
                 case "int":
                     var label = document.createElement("label");
                     label.innerHTML = element.field;
+                    label.classList.add("scouting_label");
                     container.appendChild(label)
                     var input = document.createElement("input");
+                    input.classList.add("scouting_input");
                     input.type = "number";
                     input.name = element.field;
                     container.appendChild(input);
@@ -62,8 +64,8 @@ function loadForm(){
 
                 case "MC":
                     var div = document.createElement("div");
-
                     var label = document.createElement("label");
+                    label.classList.add("scouting_label");
                     label.innerHTML = element.field;
                     container.appendChild(label)
                     container.appendChild(document.createElement("br"));
@@ -81,10 +83,12 @@ function loadForm(){
                     break;
                 case "text":
                     var label = document.createElement("label");
+                    label.classList.add("scouting_label");
                     label.innerHTML = element.field;
                     container.appendChild(label);
                     container.appendChild(document.createElement("br"));
                     var input = document.createElement("input");
+                    input.classList.add("scouting_input");
                     input.type = "text";
                     container.appendChild(input);
                     break;
@@ -101,58 +105,61 @@ $("#scouting_submit").click(function(){
 	$("#scouting_error_message").html(error_msg); 
 
 	//reset the color of all the inputs in case there was an error
-	$("#login_email_label_id").css('color', 'black');
-	$("#login_password_label_id").css('color', 'black');
-
-	//check for errors
-	if($("#login_email_input_id").val()=='' || $("#login_password_input_id").val()=='' )
-	{
-		error_msg = 'The following mandatory fields are incomplete: '; 
-
-		if($("#login_email_input_id").val()=='')
-		{
-			error_msg += '</br>&nbsp;&nbsp;&nbsp;&nbsp;Email '; 
-			$("#login_email_label_id").css('color', '#ef2323');
-		}
-		if($("#login_password_input_id").val()=='')
-		{
-			error_msg += '</br>&nbsp;&nbsp;&nbsp;&nbsp;Password '; 
-			$("#login_password_label_id").css('color', '#ef2323');
-		}
-		$("#scouting_error_message").html(error_msg); 
+    $(".scouting_label").css('color', 'black');
+    
+    error_msg = 'The following mandatory fields are incomplete: '; 
+    error_exists = false;
+    $.getJSON('./scouting-form.json', function(data) {
+        formElements = data.items;
+        formElements.forEach(element => {
+            if(element.type === "int" || element.type === "text"){
+                error_exists = true;
+                if($("#"+element.field).val() == ''){
+                    error_msg += '</br>&nbsp;&nbsp;&nbsp;&nbsp;'+element.field; 
+			        $("#"+element.field).css('color', '#ef2323');
+                }
+            }
+            else if(element.type === "MC"){
+                if($('input[name='+ element.field+']:checked').length <= 0){
+                    error_exists = true;
+                    error_msg += '</br>&nbsp;&nbsp;&nbsp;&nbsp;'+element.field; 
+			        $("#"+element.field).css('color', '#ef2323');
+                }
+            }
+        });
+    });
+    if(error_exists){
+        $("#scouting_error_message").html(error_msg); 
 		window.scrollTo(0, 0);
-	}
+    }
 	else
 	{
-		var email = $("#login_email_input_id").val(); 
-		var password = $("#login_password_input_id").val();
+        resp = [];
+        $.getJSON('./scouting-form.json', function(data) {
+            formElements = data.items;
+            formElements.forEach(element => {
+                if(element.type == "int" || element.type == "text"){
+                    resp.append($("#"+element.field).val());
+                }
+                else if(element.type == "MC"){
+                    element.options.forEach(option => {
+                        if(document.getElementById(option).checked)
+                            resp.append(option);
+                    });
+                }
+                else if(element.type == "switch"){
+                    if($("#"+element.field).checked) resp.append(element.options[1]);
+                    else resp.append(element.options[0]);
+                }
+            });
+        });
 
 	    $.ajax({
-		    url:'http://127.0.0.1:8090/steel-scout-middleend/login.php',
-		    data: {email: email, password: password},
+		    url:'http://127.0.0.1:8090/steel-scout-middleend/scouting.php',
+		    data: {values: resp},
 		    type: "POST", //or type:"GET" or type:"PUT"
 		    success: function (result) {
 		    	console.log(result); 
-		        if(result=="Incorrect email or password")
-		        {
-		        	$("#login_error_message_id").html("Incorrect email or password"); 
-		        }    
-		        else
-		        {
-		        	if ($('#id_stay_in_cb').is(':checked')) 
-		        	{
-		        		deleteCookie("reg_auth_token"); 
-		        		deleteCookie("persistent_auth_token"); 
-		        		setAuthCookiePersistent(email); 
-		        	}
-		        	else
-		        	{
-		        		deleteCookie("reg_auth_token"); 
-		        		deleteCookie("persistent_auth_token"); 
-		        		setAuthCookieAutoExp(email); 
-		        	}
-		        	window.location.assign("http://localhost:8090/steel-scout-middleend/index.html");
-		        }
 		    },
 		    error: function(jqXHR, textStatus, errorThrown, result) {
 	                alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
