@@ -110,7 +110,7 @@ $("#pit_scouting_submit_button").click(function(){
     }
     for(var i = 0; i<intLen; i++)
     {
-        nodeList[i].css('color', 'black');
+        intList[i].css('color', 'black');
     }
 
     for(var i = 0; i<listLen; i++)
