@@ -6,9 +6,12 @@
         <link rel = "stylesheet" text = "text/css" href = "index.css">
         <script type = "text/javascript" src = "js/pit_scouting_script.js"></script>
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     </head>
 
     <body>
+        
+        <div id="nav-placeholder"></div>        
 
         <form id = "pitFormContainer"> <!--ID is used by JS file to create HTML form-->
             <div id = "pitFormID" class = "pitFormContainer">
@@ -23,5 +26,13 @@
             </div>
         </form>
     </body>
+    <script>
+
+        $(function()
+        {
+              $("#nav-placeholder").load("index.html");
+        });
+        
+    </script>
 
 </html>
