@@ -1,6 +1,10 @@
 {
     "items": [
         {
+            "field": "Round Number",
+            "type": "int"
+        },
+        {
             "field": "Team Number",
             "type": "int"
         },
