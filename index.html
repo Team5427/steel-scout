@@ -37,6 +37,15 @@
                 </div>
             </div>
 
+            <!-- Scouters -->
+            <div class="topnav" id="4">
+                <div>
+                    <a class="active" href="#" id = "home">Home</a>
+                    <a href="pit_scouting_form.html">Pit Scouting Form</a>
+                    <a href="scouting.html">Scouting Form</a>
+                </div>
+            </div>
+
     </body>
 
     <script> 
@@ -44,26 +53,36 @@
         //1 is Drive Coach
         //2 is Scouting Lead
         //3 is Team Representative
-        status = 2;
-        
+        //4 is Generic Scouting
+        status = 4;
 
         if(status==1)
         {
             $("#2").remove();
             $("#3").remove();
+            $("#4").remove();
             $("#1").attr('id', 'nav');
         }
         else if(status==2)
         {
             $("#1").remove();
             $("#3").remove();
+            $("#4").remove();
             $("#2").attr('id', 'nav');
+        }
+        else if(status==3)
+        {
+            $("#1").remove();
+            $("#2").remove();
+            $("#4").remove();
+            $("#3").attr('id', 'nav');
         }
         else
         {
             $("#1").remove();
             $("#2").remove();
-            $("#3").attr('id', 'nav');
+            $("#3").remove();
+            $("#4").attr('id', 'nav');
         }
 
     </script>
