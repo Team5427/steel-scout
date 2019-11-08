@@ -1,8 +1,7 @@
 function loadForm(){
-    $.getJSON('./scouting-form.json', function(data) {
+    getFields((data) => {
         formElements = data.items;
         var container = document.getElementById("formContainer");
-        var id = 0;
         formElements.forEach(element => {
             switch(element.type){
                 case "int":
@@ -105,10 +104,19 @@ function loadForm(){
 }
 
 function getFields(callback){
-    $.getJSON('./scouting-form.json',function (data) {
-        //execute the callback, passing it the data
-        callback(data);
-    });
+    $.ajax({
+        url:'http://127.0.0.1:8090/steel-scout-middleend/scouting_json.php',
+        type: "GET",
+        success: (data) => {
+            callback(data)
+        },
+        error: error => {console.log(error)}
+    })
+
+    // $.getJSON('./scouting-form.json',function (data) {
+    //     //execute the callback, passing it the data
+    //     callback(data);
+    // });
 }
 
 $(document).ready(function() {
@@ -122,12 +130,12 @@ $(document).ready(function() {
         
         error_msg = 'The following mandatory fields are incomplete: '; 
         error_exists = false;
-        getFields(function(data) {
+        getFields((data) => {
             formElements = data.items;
             formElements.forEach(element => {
-                console.log(element.field);
+                //console.log(element.field);
                 if(element.type === "int" || element.type === "text"){
-                    console.log(element.field + ": "+ $("#"+element.field).val());
+                    //console.log(element.field + ": "+ $("#"+element.field).val());
                     if($("#"+element.field).val() === '' || $("#"+element.field).val() === undefined){
                         error_exists = true;
                         error_msg += '</br>&nbsp;&nbsp;&nbsp;&nbsp;'+element.field; 
@@ -144,6 +152,7 @@ $(document).ready(function() {
             });
             
             if(error_exists){
+                $("#scouting_error_message").css('color', '#ef2323');
                 $("#scouting_error_message").html(error_msg); 
                 window.scrollTo(0, 0);
             }
@@ -171,7 +180,7 @@ $(document).ready(function() {
                     data: {values: resp},
                     type: "POST", //or type:"GET" or type:"PUT"
                     success: function (result) {
-                        console.log(result); 
+                        console.log("result"+result); 
                     },
                     error: function(jqXHR, textStatus, errorThrown, result) {
                             alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
