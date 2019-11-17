@@ -59,8 +59,20 @@ function loadForm(){
                     var dec = document.createElement("button");
                     inc.innerHTML = "+";
                     dec.innerHTML = "-";
+                    var ctr = 0;
+                    inc.onclick = () => {ctr++;}
+                    dec.onclick = () => {ctr--;}
+
+                    var value = document.createElement("p");
+                    value.innerHTML = ctr;
+                    value.name = element.field;
+                    value.id = element.field;
+                    
+
                     container.appendChild(inc);
                     container.appendChild(dec);
+                    container.appendChild(value);
+
                     container.appendChild(document.createElement("br"));
                     break;
 
@@ -105,18 +117,13 @@ function loadForm(){
 
 function getFields(callback){
     $.ajax({
-        url:'http://127.0.0.1:8090/steel-scout-middleend/scouting_json.php',
-        type: "GET",
+        url:'http://localhost/steel-scout-middleend/scouting_json.php',
+        type: "POST",
         success: (data) => {
-            callback(data)
+            callback(JSON.parse(data));
         },
-        error: error => {console.log(error)}
+        error: error => {console.log(JSON.stringify(error)); callback({items:[]})}
     })
-
-    // $.getJSON('./scouting-form.json',function (data) {
-    //     //execute the callback, passing it the data
-    //     callback(data);
-    // });
 }
 
 $(document).ready(function() {
@@ -133,9 +140,8 @@ $(document).ready(function() {
         getFields((data) => {
             formElements = data.items;
             formElements.forEach(element => {
-                //console.log(element.field);
                 if(element.type === "int" || element.type === "text"){
-                    //console.log(element.field + ": "+ $("#"+element.field).val());
+                    console.log(element.field+": "+$("#"+element.field).val());
                     if($("#"+element.field).val() === '' || $("#"+element.field).val() === undefined){
                         error_exists = true;
                         error_msg += '</br>&nbsp;&nbsp;&nbsp;&nbsp;'+element.field; 
