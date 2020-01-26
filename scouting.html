@@ -12,14 +12,80 @@
         
         <div id="nav-placeholder"></div>
 
-        <form id  = "formContainer">
+        <form action = "process.php" method = "POST" id  = "formContainer">
+
             <h1>Scouting Form</h1>
             <p id = "scouting_error_message"></p>
             <br/>
             <hr>
-            <script>loadForm()</script>
+            
+            <label id = "team_number_label_id" for = "teamNumber"><b>Team Number</b></label>
+            <input id = "team_number_input_id" type = "text" placeholder="Enter Team Number" name = "teamNumber">
+
+            <label id = "author_id" for = "author"><b>Author</b></label>
+            <input id = "author_input_id" type = "text" placeholder="Enter Your name" name = "author">
+
+            <label id = "match_number_label_id" for = "matchNumber"><b>Match Number</b></label>
+            <input id = "match_number_input_id" type = "text" placeholder="Enter Match Number" name = "matchNumber">
+
+            <h2>Autonomous</h2>
+            <label id = "power_cells_auton_high_label" for = "pwrCellsOne"><b>Power Cells Higher Port</b></label>
+            <input id="power_cells_high_auton" type ="text" placeholder="Enter Number" name = "powerCellsOne">
+
+            <label id = "power_cells_auton_low_label" for = "pwrCellsOne"><b>Power Cells Lower Port</b></label>
+            <input id="power_cells_low_auton" type ="text" placeholder="Enter Number" name = "powerCellsOne">
+
+            <input type="checkbox" name="finished_stg1_auton_cb" id="id_stg1_auton_cb" value="value">
+            <label for="id_stg1_auton_cb" id="id_stg1_auton_lbl">Finished Stage 1</label><br>
+            <br>
+
+            <h2>Stage 2</h2>
+
+            <label id = "power_cells_stage2_high_label" for = "pwrCellsTwo"><b>Power Cells Higher Port</b></label>
+            <input id="power_cells_high_stage2" type ="text" placeholder="Enter Number" name = "powerCellsTwo">
+
+            <label id = "power_cells_stage2_low_label" for = "pwrCellsTwo"><b>Power Cells Lower Port</b></label>
+            <input id="power_cells_low_stage2" type ="text" placeholder="Enter Number" name = "powerCellsTwo">
+
+            <input type="checkbox" name="rot_control_cb" id="id_rot_control_cb" value="value">
+            <label for="id_rot_control_cb" id="id_rot_control_lbl">Rotation Control</label><br>
+            <br>
+
+            <h2>Stage 3</h2>
+
+            <label id = "power_cells_stage2_high_label" for = "pwrCellsTwo"><b>Power Cells Higher Port</b></label>
+            <input id="power_cells_high_stage2" type ="text" placeholder="Enter Number" name = "powerCellsTwo">
+
+            <label id = "power_cells_stage2_low_label" for = "pwrCellsTwo"><b>Power Cells Lower Port</b></label>
+            <input id="power_cells_low_stage2" type ="text" placeholder="Enter Number" name = "powerCellsTwo">
+
+            <label id = "position_control_label" for = "positionControl"><b>Position Control</b></label><br>
+            <input type="radio" name="positionControl" value="pos_con"> Yes<br>
+            <input type="radio" name="positionControl" value="pos_con"> No<br>
+            <br>
+
+            <h2>Endgame</h2>
+            <input type="checkbox" name="parked_cb" id="id_parked_cb" value="value">
+            <label for="id_parked_cb" id="id_parked_lbl">Parked</label><br>
+            <input type="checkbox" name="hanging_cb" id="id_hanging_cb" value="value">
+            <label for="id_hang_cb" id="id_hang_lbl">Hanging</label><br>
+            <input type="checkbox" name="level_cb" id="id_level_cb" value="value">
+            <label for="id_level_cb" id="id_level_lbl">Level</label><br>
+            <br>
+
+            <label id = "final_rp_label" for = "finalRP"><b>Final Ranking Points</b></label>
+            <input id="final_rp_text" type ="text" placeholder="Enter Number" name = "finalRP"><br>
+
+            <input type="checkbox" name="def_bot_cb" id="id_def_bot_cb" value="value">
+            <label for="id_def_bot_cb" id="id_def_bot_lbl">Defense Bot?</label><br>
+            <br>
+
+            <br>
         </form>
-        <button id = "scouting_submit">SUBMIT</button>
+
+        <div style="text-align:center;">
+        <button id = scouting_submit class = "scoutSubmitButton">SUBMIT</button>
+        </div>
         
     </body>
 
