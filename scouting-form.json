@@ -18,32 +18,33 @@
         },
         {
             "field": "Cargo Lvl 3",
-            "type": "counter"
+            "type": "int"
         },
         {
             "field": "Cargo Lvl 2",
-            "type": "counter"
+            "type": "int"
         },
         {
             "field": "Cargo Lvl 1",
-            "type": "counter"
+            "type": "int"
         },
         {
             "field": "Hatch Lvl 3",
-            "type": "counter"
+            "type": "int"
         },
         {
             "field": "Hatch Lvl 2",
-            "type": "counter"
+            "type": "int"
         },
         {
             "field": "Hatch Lvl 1",
-            "type": "counter"
+            "type": "int"
         },
         {
             "field": "HAB",
             "type": "MC",
             "options":[
+                "Field",
                 "Level 1",
                 "Level 2",
                 "Level 3"

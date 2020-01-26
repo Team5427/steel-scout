@@ -3,6 +3,7 @@
     margin: 10px auto;
 }
 
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -88,7 +89,7 @@
   }
 
   .s
-  pitScoutSubmitButton{
+  {
     background-color: #4d4dff;
     color: white;
     padding: 16px 20px;
