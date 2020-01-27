@@ -1,9 +1,0 @@
-{
-    "items": [
-        {
-            "field" : "Team Number", 
-            "type" : "int"
-        }
-        
-    ]
-}

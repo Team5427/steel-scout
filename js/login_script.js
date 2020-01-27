@@ -1,3 +1,4 @@
+const ip = "localhost";
 $("#login_submit_button_id").click(function(){ 
 	event.preventDefault();
 	var error_msg = ''; 
@@ -29,32 +30,24 @@ $("#login_submit_button_id").click(function(){
 	{
 		var email = $("#login_email_input_id").val(); 
 		var password = $("#login_password_input_id").val();
-
+		//console.log("EMAIL: "+email);
 	    $.ajax({
-		    url:'http://127.0.0.1:8090/steel-scout-middleend/login.php',
+		    url:'http://'+ip+'/steel-scout-frontend/php/login.php',
 		    data: {email: email, password: password},
 		    type: "POST", //or type:"GET" or type:"PUT"
 		    success: function (result) {
-		    	console.log(result); 
-		        if(result=="Incorrect email or password")
+				result = JSON.parse(result);
+				console.log(result); 
+				console.log(result['authenticated']);
+		        if(!result['authenticated'])
 		        {
-		        	$("#login_error_message_id").html("Incorrect email or password"); 
+
+		        	$("#login_error_message_id").html(result.error); 
 		        }    
 		        else
 		        {
-		        	if ($('#id_stay_in_cb').is(':checked')) 
-		        	{
-		        		deleteCookie("reg_auth_token"); 
-		        		deleteCookie("persistent_auth_token"); 
-		        		setAuthCookiePersistent(email); 
-		        	}
-		        	else
-		        	{
-		        		deleteCookie("reg_auth_token"); 
-		        		deleteCookie("persistent_auth_token"); 
-		        		setAuthCookieAutoExp(email); 
-		        	}
-		        	window.location.assign("http://localhost:8090/steel-scout-middleend/index.html");
+					document.cookie = "token="+result.token;
+		        	window.location.assign("http://localhost/steel-scout-frontend/scouting.html");
 		        }
 		    },
 		    error: function(jqXHR, textStatus, errorThrown, result) {
@@ -73,81 +66,3 @@ $("#login_submit_button_id").click(function(){
 		});
 	}
 });
-function setAuthCookieAutoExp(email)
-{
-	$.ajax({
-	    url:'http://127.0.0.1:8090/steel-scout-middleend/set_auth_token.php',
-	    data: {email: email},
-	    type: "POST", //or type:"GET" or type:"PUT"
-	    success: function (result) {
-	    	console.log(result); 
-			document.cookie = "reg_auth_token=" + result;
-	    },
-	    error: function(jqXHR, textStatus, errorThrown, result) {
-                alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
-
-                $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
-                console.log('jqXHR:');
-                console.log(jqXHR);
-                console.log('textStatus:');
-                console.log(textStatus);
-                console.log('errorThrown:');
-                console.log(errorThrown);
-                console.log('JSON return string: '); 
-                console.log(result); 
-            },
-	});
-}
-function setAuthCookiePersistent(email)
-{
-	$.ajax({
-	    url:'http://127.0.0.1:8090/steel-scout-middleend/set_auth_token.php',
-	    data: {email: email},
-	    type: "POST", //or type:"GET" or type:"PUT"
-	    success: function (result) {
-	    	console.log(result); 
-	    	var now = new Date();
-			now.setTime(now.getTime() + 14 * 24 * 3600 * 1000);
-			document.cookie = "persistent_auth_token=" + result + ";expires=" + now.toUTCString();
-	    },
-	    error: function(jqXHR, textStatus, errorThrown, result) {
-                alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
-
-                $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
-                console.log('jqXHR:');
-                console.log(jqXHR);
-                console.log('textStatus:');
-                console.log(textStatus);
-                console.log('errorThrown:');
-                console.log(errorThrown);
-                console.log('JSON return string: '); 
-                console.log(result); 
-            },
-	});
-}
-function deleteCookie(cname) 
-{
-	if(getCookie(cname)!= "")
-	{
-		document.cookie = cname + "=;" + "expires = Thu, 01 Jan 1970 00:00:00 GMT"; 
-		return true; 
-	}
-	return false; 
-}
-
-function getCookie(cname) 
-{
-	var name = cname + "=";
-  	var decodedCookie = decodeURIComponent(document.cookie);
-  	var ca = decodedCookie.split(';');
-  	for(var i = 0; i <ca.length; i++) {
-	    var c = ca[i];
-	    while (c.charAt(0) == ' ') {
-	      c = c.substring(1);
-	    }
-	    if (c.indexOf(name) == 0) {
-	      return c.substring(name.length, c.length);
-	    }
-  	}
-  	return "";
-}
