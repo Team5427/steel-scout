@@ -1,123 +1,6 @@
-function loadForm(){
-    getFields((data) => {
-        formElements = data.items;
-        var container = document.getElementById("formContainer");
-        formElements.forEach(element => {
-            switch(element.type){
-                case "int":
-                    var label = document.createElement("label");
-                    label.innerHTML = element.field;
-                    label.classList.add("scouting_label");
-                    container.appendChild(label)
-                    var input = document.createElement("input");
-                    input.classList.add("scouting_input");
-                    input.type = "number";
-                    input.name = element.field;
-                    input.id = element.field;
-                    container.appendChild(input);
-                    container.appendChild(document.createElement("br"));
-                    break;
-                case "switch":
-                    var div = document.createElement("div");
-                    div.classList.add("binary-switch");
-
-                    divInside = document.createElement("div");
-                    var s1 =  document.createElement("label");
-                    s1.classList.add("switch-label");
-                    s1.innerHTML = element.options[0];
-                    divInside.appendChild(s1);
-                    div.appendChild(divInside);
-
-                    divInside = document.createElement("div");
-                    var label = document.createElement("label");
-                    label.classList.add("switch");
-                    var input  = document.createElement("input");
-                    input.type = "checkbox";
-                    input.id = element.field;
-                    var span = document.createElement("span");
-                    span.classList.add("slider");
-                    label.append(input);
-                    label.append(span);
-                    divInside.appendChild(label);
-                    div.appendChild(divInside);
-
-                    divInside = document.createElement("div");
-                    var s2 =  document.createElement("label");
-                    s2.classList.add("switch-label")
-                    s2.innerHTML = element.options[1];
-                    divInside.appendChild(s2);
-                    div.appendChild(divInside);
-
-                    container.appendChild(div);
-                    container.appendChild(document.createElement("br"));
-                    break;
-                case "counter":
-                    var label = document.createElement("label");
-                    label.innerHTML = element.field;
-                    container.appendChild(label)
-                    var inc = document.createElement("button");
-                    var dec = document.createElement("button");
-                    inc.innerHTML = "+";
-                    dec.innerHTML = "-";
-                    var ctr = 0;
-                    inc.onclick = () => {ctr++;}
-                    dec.onclick = () => {ctr--;}
-
-                    var value = document.createElement("p");
-                    value.innerHTML = ctr;
-                    value.name = element.field;
-                    value.id = element.field;
-                    
-
-                    container.appendChild(inc);
-                    container.appendChild(dec);
-                    container.appendChild(value);
-
-                    container.appendChild(document.createElement("br"));
-                    break;
-
-                case "MC":
-                    var div = document.createElement("div");
-                    var label = document.createElement("label");
-                    label.classList.add("scouting_label");
-                    label.innerHTML = element.field;
-                    container.appendChild(label)
-                    container.appendChild(document.createElement("br"));
-                    element.options.forEach(option =>{
-                        var label = document.createElement("label");
-                        label.innerHTML = option;
-                        container.appendChild(label)
-                        var input = document.createElement("input");
-                        input.type = "radio";
-                        input.value = option;
-                        input.id = option;
-                        input.name = element.field;
-                        container.appendChild(input);
-                        container.appendChild(document.createElement("br"));
-                    })
-                    break;
-                case "text":
-                    var label = document.createElement("label");
-                    label.classList.add("scouting_label");
-                    label.innerHTML = element.field;
-                    container.appendChild(label);
-                    container.appendChild(document.createElement("br"));
-                    var input = document.createElement("input");
-                    input.classList.add("scouting_input");
-                    input.type = "text";
-                    input.id = element.field;
-                    container.appendChild(input);
-                    break;
-                default:
-                    break;
-            }
-        })
-    });
-}
-
 function getFields(callback){
     $.ajax({
-        url:'http://localhost/steel-scout-middleend/scouting_json.php',
+        url:'http://localhost/steel-scout-frontend/scouting_json.php',
         type: "POST",
         success: (data) => {
             callback(JSON.parse(data));
@@ -126,7 +9,6 @@ function getFields(callback){
     })
 }
 
-$(document).ready(function() {
     $("#scouting_submit").click(function(){ 
         event.preventDefault();
         var error_msg = ''; 
@@ -205,4 +87,3 @@ $(document).ready(function() {
             }
         });    
     });
-});

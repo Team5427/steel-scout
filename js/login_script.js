@@ -36,6 +36,7 @@ $("#login_submit_button_id").click(function(){
 		    data: {email: email, password: password},
 		    type: "POST", //or type:"GET" or type:"PUT"
 		    success: function (result) {
+				console.log(result);
 				result = JSON.parse(result);
 				console.log(result); 
 				console.log(result['authenticated']);
