@@ -47,43 +47,6 @@
 
     </body>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script> 
     
-        //1 is Drive Coach
-        //2 is Scouting Lead
-        //3 is Team Representative
-        //4 is Generic Scouting
-        status = 4;
-
-        if(status==1)
-        {
-            $("#2").remove();
-            $("#3").remove();
-            $("#4").remove();
-            $("#1").attr('id', 'nav');
-        }
-        else if(status==2)
-        {
-            $("#1").remove();
-            $("#3").remove();
-            $("#4").remove();
-            $("#2").attr('id', 'nav');
-        }
-        else if(status==3)
-        {
-            $("#1").remove();
-            $("#2").remove();
-            $("#4").remove();
-            $("#3").attr('id', 'nav');
-        }
-        else
-        {
-            $("#1").remove();
-            $("#2").remove();
-            $("#3").remove();
-            $("#4").attr('id', 'nav');
-        }
-
-    </script>
 
 </html>

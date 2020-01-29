@@ -13,7 +13,7 @@
     
 
     //connecting to SQL Database
-    $con = mysqli_connect("localhost", "root", "", "steel-scout");
+    $con = mysqli_connect("localhost", "root", "", "steel_scout");
 
     //looking for matching username
     $sql = "SELECT * FROM users WHERE email=\"$email\"";
