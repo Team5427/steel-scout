@@ -25,10 +25,12 @@
       while($row = mysqli_fetch_assoc($res)){
         if($password == $row['password']){
             $token = bin2hex(random_bytes(64));
+            
+
             $id = $row['id'];
-            $sql = "UPDATE users SET auth_token=\"$token\" WHERE id=$id;";
+            $sql = "UPDATE users SET token=\"$token\" WHERE id=$id";
             $res = mysqli_query($con, $sql);
-            $response = array('authenticated' => true, 'auth_key' => $token, 'role' => $row['role']);
+            $response = array('authenticated' => true, 'token' => $token, 'role' => $row['role']);
             echo json_encode($response);
             exit;
         }
