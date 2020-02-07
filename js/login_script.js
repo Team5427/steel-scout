@@ -68,17 +68,17 @@ $(window).on('load', function() {
 
 function error() {
 	console.log("FAILURE");
-	// alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+	alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
 
-	// $('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
-	// console.log('jqXHR:');
-	// console.log(jqXHR);
-	// console.log('textStatus:');
-	// console.log(textStatus);
-	// console.log('errorThrown:');
-	// console.log(errorThrown);
-	// console.log('JSON return string: '); 
-	// console.log(result); 
+	$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
+	console.log('jqXHR:');
+	console.log(jqXHR);
+	console.log('textStatus:');
+	console.log(textStatus);
+	console.log('errorThrown:');
+	console.log(errorThrown);
+	console.log('JSON return string: '); 
+	console.log(result); 
 }
 function getCookie(name) {
     var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');

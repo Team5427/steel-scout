@@ -1,7 +1,7 @@
 <?php
 session.start();
 $host = "localhost";
-$user = "steel_scout";
+$user = "steel-scout";
 $password = "!te@m5427!";
 $dbname = "steel_scout";
 
