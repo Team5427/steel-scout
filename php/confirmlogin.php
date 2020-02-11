@@ -5,10 +5,13 @@
     
     $token =  $_POST['token'];
 
+    echo $token
+    die();
+
     
 
     //connecting to SQL Database
-    $con = mysqli_connect("localhost", "root", "", "steel-scout");
+    $con = mysqli_connect("localhost", "root", "", "steel_scout");
 
     //looking for matching username
     $sql = "SELECT * FROM users WHERE token=\"$token\"";
@@ -16,7 +19,7 @@
     
 
     //checking where token matches
-    if(mysqli_num_rows($res)>0){
+    if($res != false && mysqli_num_rows($res)>0){
       while($row = mysqli_fetch_assoc($res)){
         
         $response = array('authenticated' => true, 'token' => $token, 'role' => $row['role'], 'email'=> $row['email']);

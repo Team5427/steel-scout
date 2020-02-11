@@ -18,72 +18,72 @@
             <br/>
             <hr>
             
-            <label id = "team_number_label_id" for = "teamNumber"><b>Team Number</b></label>
+            <label id = "input1_label_id" for = "teamNumber"><b>Team Number</b></label>
             <input id = "input1" type = "text" placeholder="Enter Team Number" name = "teamNumber">
 
-            <label id = "author_id" for = "author"><b>Author</b></label>
+            <label id = "input2_label_id" for = "author"><b>Author</b></label>
             <input id = "input2" type = "text" placeholder="Enter Your name" name = "author">
 
-            <label id = "match_number_label_id" for = "matchNumber"><b>Match Number</b></label>
+            <label id = "input3_label_id" for = "matchNumber"><b>Match Number</b></label>
             <input id = "input3" type = "text" placeholder="Enter Match Number" name = "matchNumber">
 
             <h2>Autonomous</h2>
-            <label id = "power_cells_auton_high_label" for = "pwrCellsOne"><b>Power Cells Higher Port</b></label>
-            <input id="input4" type ="text" placeholder="Enter Number" name = "powerCellsOne">
+            <label id = "input4_label_id" for = "pwrCellsOne"><b>Power Cells Higher Port</b></label>
+            <input id="input4" type ="text" placeholder="Enter Number" name = "powerCellsHighOne">
 
-            <label id = "power_cells_auton_low_label" for = "pwrCellsOne"><b>Power Cells Lower Port</b></label>
-            <input id="input5" type ="text" placeholder="Enter Number" name = "powerCellsOne">
+            <label id = "input5_label_id" for = "pwrCellsOne"><b>Power Cells Lower Port</b></label>
+            <input id="input5" type ="text" placeholder="Enter Number" name = "powerCellsLowOne">
 
-            <input type="checkbox" name="finished_stg1_auton_cb" id="input6" value="value">
-            <label for="id_stg1_auton_cb" id="id_stg1_auton_lbl">Finished Stage 1</label><br>
-            <input type="checkbox" name="finished_stg1_auton_cb" id="input6" value="value">
-            <label for="id_stg1_auton_cb" id="id_stg1_auton_lbl">Didn't Finish Stage 1</label><br>
+            <input type="checkbox" name="finishedStageOneAuton" id="input6" value="value">
+            <label for="input6" id="input6_label_id">Finished Stage 1</label><br>
+            <input type="checkbox" name="finishedStageOneAuton" id="input6" value="value">
+            <label for="input6" id="input6_label_id">Didn't Finish Stage 1</label><br>
             <br>
 
             <h2>Stage 2</h2>
 
-            <label id = "power_cells_stage2_high_label" for = "pwrCellsTwo"><b>Power Cells Higher Port</b></label>
-            <input id="input7" type ="text" placeholder="Enter Number" name = "powerCellsTwo">
+            <label id = "input7_label_id" for = "pwrCellsTwo"><b>Power Cells Higher Port</b></label>
+            <input id="input7" type ="text" placeholder="Enter Number" name = "powerCellsHighTwo">
 
-            <label id = "power_cells_stage2_low_label" for = "pwrCellsTwo"><b>Power Cells Lower Port</b></label>
-            <input id="input7" type ="text" placeholder="Enter Number" name = "powerCellsTwo">
+            <label id = "input8_label_id" for = "pwrCellsTwo"><b>Power Cells Lower Port</b></label>
+            <input id="input8" type ="text" placeholder="Enter Number" name = "powerCellsLowTwo">
 
-            <input type="checkbox" name="rot_control_cb" id="input8" value="value">
-            <label for="id_rot_control_cb" id="id_rot_control_lbl">Rotation Control</label><br>
-            <input type="checkbox" name="rot_control_cb" id="input8" value="value">
-            <label for="id_rot_control_cb" id="id_rot_control_lbl">No Rotation Control</label><br>
+            <label id = "input9_label_id" for = "rotationControl"><b>Rotation Control</b></label><br>
+            <input type="radio" name="radio9" id = "input9" value="rot_con"> Yes<br>
+            <input type="radio" name="radio9" id = "input9" value="rot_con"> No<br>
             <br>
 
             <h2>Stage 3</h2>
 
-            <label id = "power_cells_stage3_high_label" for = "pwrCellsThree"><b>Power Cells Higher Port</b></label>
-            <input id="input9" type ="text" placeholder="Enter Number" name = "powerCellsThree">
+            <label id = "input10_label_id" for = "pwrCellsThree"><b>Power Cells Higher Port</b></label>
+            <input id="input10" type ="text" placeholder="Enter Number" name = "powerCellsHighThree">
 
-            <label id = "power_cells_stage3_low_label" for = "pwrCellsThree"><b>Power Cells Lower Port</b></label>
-            <input id="input10" type ="text" placeholder="Enter Number" name = "powerCellsThree">
+            <label id = "input11_label_id" for = "pwrCellsThree"><b>Power Cells Lower Port</b></label>
+            <input id="input11" type ="text" placeholder="Enter Number" name = "powerCellsLowThree">
 
             <label id = "position_control_label" for = "positionControl"><b>Position Control</b></label><br>
-            <input type="radio" name="positionControl" id = "input11" value="pos_con"> Yes<br>
-            <input type="radio" name="positionControl" id = "input11" value="pos_con"> No<br>
+            <input type="radio" name="radio12" id = "input12" value="pos_con"> Yes<br>
+            <input type="radio" name="radio12" id = "input12" value="pos_con"> No<br>
             <br>
 
             <h2>Endgame</h2>
-            <input type="checkbox" name="parked_cb" id="input12" value="value">
+            <input type="radio" name="radio13" id="input13" value="value">
             <label for="id_parked_cb" id="id_parked_lbl">Parked</label><br>
-            <input type="checkbox" name="hanging_cb" id="input12" value="value">
+            <input type="radio" name="radio13" id="input13" value="value">
             <label for="id_hang_cb" id="id_hang_lbl">Hanging</label><br>
-            <input type="checkbox" name="level_cb" id="input13" value="value">
+            <br>
+            <input type="radio" name="radio14" id="input14" value="value">
             <label for="id_notlevel_cb" id="id_notlevel_lbl">Level</label><br>
-            <input type="checkbox" name="notlevel_cb" id="input13" value="value">
+            <input type="radio" name="radio14" id="input14" value="value">
             <label for="id_notlevel_cb" id="id_notlevel_lbl">Not Level</label><br>
             <br>
 
             <label id = "final_rp_label" for = "finalRP"><b>Final Ranking Points</b></label>
-            <input id="input14" type ="text" placeholder="Enter Number" name = "finalRP"><br>
+            <input id="input15" type ="text" placeholder="Enter Number" name = "finalRP"><br>
 
-            <input type="checkbox" name="def_bot_cb" id="input15" value="value">
+            <input type="radio" name="radio16" id="input16" value="value">
             <label for="id_def_bot_cb" id="id_def_bot_lbl">Defense Bot</label><br>
-            <input type="checkbox" name="def_bot_cb" id="input15" value="value">
+            <input type="radio" name="radio16" id="input16" value="value">
             <label for="id_def_bot_cb" id="id_def_bot_lbl">Not Defense Bot</label><br>
             <br>
 
@@ -93,14 +93,9 @@
         <div style="text-align:center;">
         <button id = scouting_submit class = "scoutSubmitButton">SUBMIT</button>
         </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="js/scouting_script.js"></script>
         
     </body>
-    
-    <script>
-
-        /*$(function(){
-          $("#nav-placeholder").load("index.html");
-        });*/
-
-    </script>
 </html>
