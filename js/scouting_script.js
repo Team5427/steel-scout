@@ -1,5 +1,6 @@
 //auto login code
-var ip = "localhost";
+const ip = "localhost";
+const numInputs = 16;
 $(window).on('load', function() {
 	let token = getCookie("token");
 	// console.log("COOKIE: "+document.cookie);
@@ -22,6 +23,35 @@ $(window).on('load', function() {
         window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");
     }
 });
+
+// $("#scouting_submit").click(function()
+// {
+// 	Console.log("clicked");
+// 	event.preventDefault();
+// 	var error_msg = '';
+// 	$("#scouting_error_message").html(error_msg);
+
+// 	for(var i = 1; i<=numInputs; i++)
+// 	{
+// 		$("#input"+i).css("color", "black");
+// 	}
+
+// 	for(var i = 1; i<=numInputs; i++)
+// 	{
+// 		var input = document.getElementById("#input"+i);
+		
+// 		if(input.type == "text" && input == '')
+// 		{
+// 			$("#input"+i).css("color", "#ef2323");
+// 			window.scrollTo(0, 0);
+// 		}
+// 		// if(input.type == "radio" && $("input[name=radio"+i+"]:checked").val().length == 0)
+// 		// {
+// 		// 	$("#input"+i).css("color", "#ef2323");
+// 		// }
+// 	}
+
+// });
 
 function error(jqXHR, textStatus, errorThrown, result) {
 	console.log("FAILURE");
