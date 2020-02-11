@@ -95,6 +95,8 @@ function loadForm(){
     });
 }
 
+
+
 $("#pit_scouting_submit_button").click(function(){
     event.preventDefault();
     var errorMessage = " ";

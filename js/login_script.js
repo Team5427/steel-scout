@@ -1,4 +1,4 @@
-const ip = "localhost";
+var ip = "localhost";
 $("#login_submit_button_id").click(function(){ 
 	event.preventDefault();
 	var error_msg = ''; 
@@ -34,8 +34,13 @@ $("#login_submit_button_id").click(function(){
 		        	$("#login_error_message_id").html(result.error);   
 		        else{
 					
-					document.cookie += "token="+result.token;
-		        	result['role'] === "SCOUTER" && window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
+					document.cookie = "token="+result.token;
+
+					//set default pages
+					(result['role'] === "SCOUTER") && window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
+					(result['role'] === "LEAD") && window.location.assign("http://"+ip+"/steel-scout-frontend/users.html");
+					
+					
 		        }
 		    },
 		    error: function(jqXHR, textStatus, errorThrown, result){
@@ -59,7 +64,11 @@ $(window).on('load', function() {
 				//console.log("RESULT: "+result);
 				result = JSON.parse(result);
 				if(result['authenticated']) 
-					window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
+				{
+					//set default pages
+					(result['role'] === "SCOUTER") &&  window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
+					(result['role'] === "LEAD") && window.location.assign("http://"+ip+"/steel-scout-frontend/users.html");
+				}
 			},
 			error: error()
 		});

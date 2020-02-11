@@ -1,16 +1,16 @@
 //auto login code
-const ip = "localhost";
+var ip = "localhost";
 $(window).on('load', function() {
 	let token = getCookie("token");
-	console.log("COOKIE: "+document.cookie);
-	console.log("TOKEN: "+token);
+	// console.log("COOKIE: "+document.cookie);
+	// console.log("TOKEN: "+token);
 	if(token != null) {
 		$.ajax({
 			url:'http://'+ip+'/steel-scout-frontend/php/confirmlogin.php',
 			data: {token: token},
 			type: "POST", //or type:"GET" or type:"PUT"
 			success: function (result) {
-				console.log("RESULT: "+result);
+				//console.log("RESULT: "+result);
 				result = JSON.parse(result);
 				if(!result['authenticated'] || result['role'] !== 'SCOUTER') 
 					window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");

@@ -13,7 +13,7 @@
     
 
     //connecting to SQL Database
-    $con = mysqli_connect("localhost", "root", "", "steel_scout");
+    $con = mysqli_connect("localhost", "root", "", "steel-scout");
 
     //looking for matching username
     $sql = "SELECT * FROM users WHERE email=\"$email\"";
@@ -26,7 +26,6 @@
         if($password == $row['password']){
             $token = bin2hex(random_bytes(64));
             
-
             $id = $row['id'];
             $sql = "UPDATE users SET token=\"$token\" WHERE id=$id";
             $res = mysqli_query($con, $sql);
