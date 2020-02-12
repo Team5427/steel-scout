@@ -5,13 +5,11 @@
     
     $token =  $_POST['token'];
 
-    echo $token
-    die();
 
     
 
     //connecting to SQL Database
-    $con = mysqli_connect("localhost", "root", "", "steel_scout");
+    $con = mysqli_connect("localhost", "root", "", "steel-scout");
 
     //looking for matching username
     $sql = "SELECT * FROM users WHERE token=\"$token\"";

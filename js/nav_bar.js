@@ -1,5 +1,4 @@
 //auto login code
-var ip = "localhost";
 $(window).on('load', function() {
 	authenticate();
 });
@@ -89,7 +88,7 @@ function authenticate(){
     var role;
 	if(token != null) {
 		$.ajax({
-			url:'http://'+ip+'/steel-scout-frontend/php/confirmlogin.php',
+			url:'http://localhost/steel-scout-frontend/php/confirmlogin.php',
 			data: {token: token},
 			type: "POST", //or type:"GET" or type:"PUT"
 			success: function (result) {
@@ -99,7 +98,7 @@ function authenticate(){
 				role = result['role'];
 				load_navbar(role);
 				if(!result['authenticated'])
-					window.location.assign("http://"+ip+"/steel-scout-frontend/login.html")   
+					window.location.assign("http://localhost/steel-scout-frontend/login.html")   
 			},
 			error: function(){
 				//window.location.assign("http://"+ip+"/steel-scout-frontend/login.html")  

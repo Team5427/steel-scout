@@ -5,7 +5,7 @@
 
 
     //connect to database
-    $con = mysquli_connect("localhost", "root", "", "steel_scout");
+    $con = mysquli_connect("localhost", "root", "", "steel-scout");
 
     if($con -> connect_error)
     {
