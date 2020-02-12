@@ -6,3 +6,24 @@ CREATE TABLE `users` (
  `role` varchar(255) DEFAULT 'SCOUTER',
  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1
+
+
+CREATE TABLE `scouting` (
+ `teamNumber` int(6) DEFAULT NULL,
+ `author` varchar(100) DEFAULT NULL,
+ `matchNumber` int(6) DEFAULT NULL,
+ `powerCellsHighOne` int(6) DEFAULT NULL,
+ `powerCellsLowOne` int(6) DEFAULT NULL,
+ `finishedStageOneAuton` tinyint(1) DEFAULT '0',
+ `powerCellsHighTwo` int(6) DEFAULT NULL,
+ `powerCellsLowTwo` int(6) DEFAULT NULL,
+ `rotationControl` tinyint(1) NOT NULL DEFAULT '0',
+ `powerCellsHighThree` int(6) DEFAULT NULL,
+ `powerCellsLowThree` int(6) DEFAULT NULL,
+ `positionControl` tinyint(1) NOT NULL DEFAULT '0',
+ `parked` tinyint(1) NOT NULL DEFAULT '0',
+ `level` tinyint(1) NOT NULL DEFAULT '0',
+ `finalRP` int(6) DEFAULT NULL,
+ `defenseBot` tinyint(1) DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1
+
