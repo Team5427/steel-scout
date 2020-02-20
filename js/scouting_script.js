@@ -1,5 +1,4 @@
 //auto login code
-const ip = "localhost";
 const numInputs = 16;
 $(window).on('load', function() {
 	let token = getCookie("token");
@@ -7,20 +6,20 @@ $(window).on('load', function() {
 	// console.log("TOKEN: "+token);
 	if(token != null) {
 		$.ajax({
-			url:'http://'+ip+'/steel-scout-frontend/php/confirmlogin.php',
+			url:'http://localhost/steel-scout-frontend/php/confirmlogin.php',
 			data: {token: token},
 			type: "POST", //or type:"GET" or type:"PUT"
 			success: function (result) {
 				//console.log("RESULT: "+result);
 				result = JSON.parse(result);
 				if(!result['authenticated'] || result['role'] !== 'SCOUTER') 
-					window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");
+					window.location.assign("http://localhost/steel-scout-frontend/login.html");
 			},
 			error: error()
 		});
     }
     else{
-        window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");
+        window.location.assign("http://localhost/steel-scout-frontend/login.html");
     }
 });
 
