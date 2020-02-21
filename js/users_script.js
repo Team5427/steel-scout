@@ -1,5 +1,3 @@
-
-
 $(window).on('load', function() {
 	let token = getCookie("token");
 	if(token != null) {
@@ -41,7 +39,7 @@ function load_users(){
 			table = document.getElementById("usertable");
 			while (table.firstChild) {
 				table.removeChild(table.firstChild);
-			  }
+			}
 
 			result.map(user => {
 				var row = document.createElement("tr");

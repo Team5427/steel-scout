@@ -26,3 +26,7 @@ CREATE TABLE `scouting` (
  `finalRP` int(6) DEFAULT NULL,
  `defenseBot` tinyint(1) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc891fd6d7cb2633672f31aa1421187567bc6907

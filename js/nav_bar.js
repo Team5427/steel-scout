@@ -7,7 +7,7 @@ function error(jqXHR, textStatus, errorThrown, result) {
 	console.log("FAILURE");
 	// alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
 
-	$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
+	//$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
 }
 
 function getCookie(name) {
@@ -43,14 +43,14 @@ function load_navbar(role){
 		var allmatches = document.createElement("a");
 		var teamrankings = document.createElement("a");
 
-		allusers.href = "#";
+		allusers.href = "./users.html";
 		allusers.innerHTML = "All Users";
 
 		allmatches.href = "#";
 		allmatches.innerHTML = "All Matches";
-
-		teamrankings.href = "#";
+		
 		teamrankings.innerHTML = "Team Rankings";
+		teamrankings.href = "./rankings.html";
 
 		inside.appendChild(allusers);
 		inside.appendChild(allmatches);
@@ -101,7 +101,6 @@ function authenticate(){
 					window.location.assign("http://localhost/steel-scout-frontend/login.html")   
 			},
 			error: function(){
-				//window.location.assign("http://"+ip+"/steel-scout-frontend/login.html")  
 				error();
 			}
 		});

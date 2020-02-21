@@ -12,10 +12,13 @@
   <body id="main">
     <div id="topnav" class="topnav"></div>
 
+    <select id = "ranking_drop">
+      <option>Overall</option>
+    </select>
+
     <form class="ranking">
       <div id="ranking" class="container">
         <h1>Rankings</h1>
-       
         <hr>
         <div class="table-wrapper">
           <table class="fl-table">
@@ -23,15 +26,10 @@
                 <tr>
                   <th>Rank</th>
                   <th>Team</th>
-                  <th>Win-Loss-Tie</th>
-                  <th>Climb Rate</th>
-                  <th>Adjust Rate</th>
-                  <th>Ranking Points</th>
-                  <th>Avg Power Cells</th>
-                  <th>Position Control</th>
-                  <th>Rotation Control</th>
+                  <th>Score</th>
                 </tr>
               </thead>
+              <tbody id = "ranking_body"></tbody>
           </table>
         </div>
       </div>
