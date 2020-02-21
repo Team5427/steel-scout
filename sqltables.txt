@@ -8,7 +8,6 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1
 
 
-<<<<<<< HEAD
 CREATE TABLE `scouting` (
  `teamNumber` int(6) DEFAULT NULL,
  `author` varchar(100) DEFAULT NULL,
@@ -27,6 +26,3 @@ CREATE TABLE `scouting` (
  `finalRP` int(6) DEFAULT NULL,
  `defenseBot` tinyint(1) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1
-
-=======
->>>>>>> f44a9411d6e83dde066cb5ceb427aa07fab922c9

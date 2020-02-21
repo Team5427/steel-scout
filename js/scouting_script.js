@@ -1,57 +1,109 @@
 //auto login code
-const ip = "localhost";
-const numInputs = 16;
-$(window).on('load', function() {
-	let token = getCookie("token");
-	// console.log("COOKIE: "+document.cookie);
-	// console.log("TOKEN: "+token);
-	if(token != null) {
-		$.ajax({
-			url:'http://'+ip+'/steel-scout-frontend/php/confirmlogin.php',
-			data: {token: token},
-			type: "POST", //or type:"GET" or type:"PUT"
-			success: function (result) {
-				//console.log("RESULT: "+result);
-				result = JSON.parse(result);
-				if(!result['authenticated'] || result['role'] !== 'SCOUTER') 
-					window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");
-			},
-			error: error()
-		});
-    }
-    else{
-        window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");
-    }
-});
-
-// $("#scouting_submit").click(function()
-// {
-// 	Console.log("clicked");
-// 	event.preventDefault();
-// 	var error_msg = '';
-// 	$("#scouting_error_message").html(error_msg);
-
-// 	for(var i = 1; i<=numInputs; i++)
-// 	{
-// 		$("#input"+i).css("color", "black");
-// 	}
-
-// 	for(var i = 1; i<=numInputs; i++)
-// 	{
-// 		var input = document.getElementById("#input"+i);
-		
-// 		if(input.type == "text" && input == '')
-// 		{
-// 			$("#input"+i).css("color", "#ef2323");
-// 			window.scrollTo(0, 0);
-// 		}
-// 		// if(input.type == "radio" && $("input[name=radio"+i+"]:checked").val().length == 0)
-// 		// {
-// 		// 	$("#input"+i).css("color", "#ef2323");
-// 		// }
-// 	}
-
+// const ip = "localhost";
+// const numInputs = 16;
+// $(window).on('load', function() {
+// 	let token = getCookie("token");
+// 	// console.log("COOKIE: "+document.cookie);
+// 	// console.log("TOKEN: "+token);
+// 	if(token != null) {
+// 		$.ajax({
+// 			url:'http://'+ip+'/steel-scout-frontend/php/confirmlogin.php',
+// 			data: {token: token},
+// 			type: "POST", //or type:"GET" or type:"PUT"
+// 			success: function (result) {
+// 				//console.log("RESULT: "+result);
+// 				result = JSON.parse(result);
+// 				if(!result['authenticated'] || result['role'] !== 'SCOUTER') 
+// 					window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");
+// 			},
+// 			error: error()
+// 		});
+//     }
+//     else{
+//         window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");
+//     }
 // });
+
+$("#scouting_submit").click(function()
+{
+	var check = true;
+	var numInputs = 16
+	console.log("clicked");
+	event.preventDefault();
+
+	// for(var i = 1; i<=numInputs; i++)
+	// {
+	// 	$("#input"+i).css("color", "black");
+	// }
+
+	$("input:radio").each(function(){
+		var name = $(this).attr("name");
+		if($("input:radio[name="+name+"]:checked").length == 0)
+		{
+			check = false;
+			console.log(name + "is empty");
+			$("#"+name+"id").css("color", "#ef2323");
+		}
+		else
+		{
+			$("#"+name+"id").css("background-color", "#f1f1f1");
+		}
+	});
+
+	for(var i = 1; i<=numInputs; i++)
+	{
+		var input = document.getElementById("input"+i);
+
+		if(input.type == "text")
+		{
+			if(input.value == '')
+			{
+				check = false
+			    console.log("input"+i+" is empty");
+				input.style.backgroundColor = "#ef2323";
+			}
+			else
+			{
+				input.style.backgroundColor = "#f1f1f1"
+			}
+		}
+	}
+	console.log(check);
+	if(check === false)
+	{
+		$("#scouting_error_message").html("Some fields are incomplete: ");
+		window.scrollTo(0, 0);
+	}
+	else
+	{
+		window.scrollTo(0,0);
+		$.ajax({
+			url: 'http://localhost/steel-scout-frontend/php/scouting.php', 
+			data: {teamNumber: $('[name=teamNumber]').val(), author: $('[name=author]').val(), matchNumber: $('[name=matchNumber]').val(), 
+				powerCellsHighOne: $('[name=powerCellsHighOne]').val(), powerCellsLowOne: $('[name=powerCellsLowOne]').val(), radio1: $('input[type=radio][name=radio1]:checked').val(),
+				powerCellsHighTwo: $('[name=powerCellsHighTwo]').val(), powerCellsLowTwo: $('[name=powerCellsLowTwo]').val(), radio2: $('input[type=radio][name=radio2]:checked').val(), 
+				powerCellsHighThree: $('[name=powerCellsHighThree]').val(), powerCellsLowThree: $('[name=powerCellsLowThree]').val(), radio3: $('input[type=radio][name=radio3]:checked').val(), 
+				radio4: $('input[type=radio][name=radio4]:checked').val(), radio5: $('input[type=radio][name=radio5]:checked').val(), finalRP: $('[name=finalRP]').val(), 
+				radio6: $('input[type=radio][name=radio6]').val()}, 
+			type: "POST", 
+			success: function(result)
+			{
+				result = JSON.parse(result);
+				if(!result['authenticated'])
+					$("#scouting_error_message").html(result.error);
+				else
+				{
+					(result['role'] === "SCOUTER") && window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
+				}
+				
+			}, 
+			error: function(jqXHR, textStatus, errorThrown, result)
+			{
+				error(jqXHR, textStatus, errorThrown, result);
+			}
+		})
+	}
+});
 
 function error(jqXHR, textStatus, errorThrown, result) {
 	console.log("FAILURE");

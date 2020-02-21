@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     //CORS Headers
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");   
@@ -30,4 +30,4 @@
     //authentication failure
     $response = array('authenticated' => false, 'error' => 'Login Failure: Username or Password may be incorrect.');
     echo json_encode($response);
-?>
+?> -->
