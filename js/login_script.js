@@ -40,7 +40,7 @@ $("#login_submit_button_id").click(function(){
 					(result['role'] === "SCOUTER") && window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
 					(result['role'] === "LEAD") && window.location.assign("http://"+ip+"/steel-scout-frontend/users.html");
 					
-					
+
 		        }
 		    },
 		    error: function(jqXHR, textStatus, errorThrown, result){

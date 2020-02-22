@@ -3,6 +3,16 @@
     margin: 10px auto;
 }
 
+#scoutingForm{
+  width: 90%;
+  margin: 10px auto;
+}
+
+#pitScoutingForm{
+  width: 90%;
+  margin: 10px auto;
+}
+
 
 /* The switch - the box around the slider */
 .switch {

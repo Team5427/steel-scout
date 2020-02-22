@@ -1,6 +1,6 @@
 <?php
     header("Access-Control-Allow-Origin: *");
-    //header("Access-Control-Allow-Headers: *");
+    header("Access-Control-Allow-Headers: *");
 
     $teamNumber = $_POST['teamNumber'];
     $author = $_POST['author'];
@@ -20,23 +20,25 @@
     $radio6 = $_POST['radio6'];
 
     //connect to database
-    $con = mysquli_connect("localhost", "root", "", "steel-scout");
+    $con = mysqli_connect("localhost", "root", "", "steel-scout");
 
     if($con -> connect_error)
     {
         die("Connection failed: " . $con -> connect_error);
     }
 
-    $sql = INSERT INTO scouting (teamNumber, author, matchNumber, powerCellsHighOne, powerCellsLowOne, radio1, powerCellsHighTwo, powerCellsLowTwo, radio2, powerCellsHighThree, powerCellsLowThree, radio3, radio4, radio5, finalRP, radio6)
-    VALUES ($teamNumber, $author, $matchNumber, $powerCellsHighOne, $powerCellsLowOne, $radio1, $powerCellsHighTwo, $powerCellsLowTwo, $radio2, $powerCellsHighThree, $powerCellsLowThree, $radio3, $radio4, $radio5, $finalRP, $radio6)
+    $sql = "INSERT INTO scouting (teamNumber, author, matchNumber, powerCellsHighOne, powerCellsLowOne, radio1, powerCellsHighTwo, powerCellsLowTwo, radio2, powerCellsHighThree, powerCellsLowThree, radio3, radio4, radio5, finalRP, radio6)
+    VALUES ($teamNumber, \"$author\", $matchNumber, $powerCellsHighOne, $powerCellsLowOne, $radio1, $powerCellsHighTwo, $powerCellsLowTwo, $radio2, $powerCellsHighThree, $powerCellsLowThree, $radio3, $radio4, $radio5, $finalRP, $radio6)";
 
-    if($con->query($sql) === TRUE)
+    //$res = mysqli_query($con, $sql);
+
+    if($con->query($sql) === true)
     {
-        echo "New record created successfully!";
+        echo "logged";
     }
     else
     {
-        echo "Error! Make sure you have only digits where there are number inputs!";
+        echo "Error: " . $sql . "<br>" . $con->error;
     }
 
     mysqli_close($con);

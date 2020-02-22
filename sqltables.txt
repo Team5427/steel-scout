@@ -14,19 +14,19 @@ CREATE TABLE `scouting` (
  `matchNumber` int(6) DEFAULT NULL,
  `powerCellsHighOne` int(6) DEFAULT NULL,
  `powerCellsLowOne` int(6) DEFAULT NULL,
- `finishedStageOneAuton` tinyint(1) DEFAULT '0',
+ `radio1` tinyint(1) DEFAULT '0',
  `powerCellsHighTwo` int(6) DEFAULT NULL,
  `powerCellsLowTwo` int(6) DEFAULT NULL,
- `rotationControl` tinyint(1) NOT NULL DEFAULT '0',
+ `radio2` tinyint(1) NOT NULL DEFAULT '0',
  `powerCellsHighThree` int(6) DEFAULT NULL,
  `powerCellsLowThree` int(6) DEFAULT NULL,
- `positionControl` tinyint(1) NOT NULL DEFAULT '0',
- `parked` tinyint(1) NOT NULL DEFAULT '0',
- `level` tinyint(1) NOT NULL DEFAULT '0',
+ `radio3` tinyint(1) NOT NULL DEFAULT '0',
+ `radio4` tinyint(1) NOT NULL DEFAULT '0',
+ `radio5` tinyint(1) NOT NULL DEFAULT '0',
  `finalRP` int(6) DEFAULT NULL,
- `defenseBot` tinyint(1) DEFAULT '0'
+ `radio6` tinyint(1) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1
-<<<<<<< HEAD
-=======
 
->>>>>>> fc891fd6d7cb2633672f31aa1421187567bc6907
+CREATE TABLE `pitscouting` (
+ `teamNumber` int(6) DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1
+
