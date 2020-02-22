@@ -33,13 +33,12 @@ function pullData(){
 		data: {},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
-			//console.log("RESULT: "+result);
+			console.log("RESULT: "+result);
 			result = JSON.parse(result);
 			result.sort(
 				function(data1, data2){
-					if(data1.score != data2.score)
-						return data1.score - data2.score;
-					//team number sorting
+					if(data1.total_score != data2.total_score)
+						return data2.total_score-data1.total_score;
 					else{
 						if(data1.teamNumber < data2.teamNumber) return -1;
 						else if(data1.teamNumber < data2.teamNumber) return 1;
@@ -47,7 +46,7 @@ function pullData(){
 					}
 				}
 			)
-			//console.log("sorted: "+JSON.stringify(result));
+			console.log("sorted: "+JSON.stringify(result));
 			var ranknum = 1;
 			result.map(data => {
 				var row = document.createElement("tr");
