@@ -33,7 +33,7 @@ function pullData(){
 		data: {},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
-			console.log("RESULT: "+result);
+			//console.log("RESULT: "+result);
 			result = JSON.parse(result);
 			result.sort(
 				function(data1, data2){
@@ -46,7 +46,7 @@ function pullData(){
 					}
 				}
 			)
-			console.log("sorted: "+JSON.stringify(result));
+			//console.log("sorted: "+JSON.stringify(result));
 			var ranknum = 1;
 			result.map(data => {
 				var row = document.createElement("tr");
