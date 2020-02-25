@@ -1,30 +1,30 @@
-$(window).on('load', function() {
-	let token = getCookie("token");
-	// console.log("COOKIE: "+document.cookie);
-	// console.log("TOKEN: "+token);
-	if(token != null) {
-		$.ajax({
-			url:'http://localhost/steel-scout-frontend/php/confirmlogin.php',
-			data: {token: token},
-			type: "POST", //or type:"GET" or type:"PUT"
-			success: function (result) {
-				//console.log("RESULT: "+result);
-				result = JSON.parse(result);
-				if(!result['authenticated'] || result['role'] !== 'SCOUTER') 
-					window.location.assign("http://localhost/steel-scout-frontend/login.html");
-			},
-			error: error()
-		});
-    }
-    else{
-        window.location.assign("http://localhost/steel-scout-frontend/login.html");
-    }
-});
+// $(window).on('load', function() {
+// 	let token = getCookie("token");
+// 	// console.log("COOKIE: "+document.cookie);
+// 	// console.log("TOKEN: "+token);
+// 	if(token != null) {
+// 		$.ajax({
+// 			url:'http://localhost/steel-scout-frontend/php/confirmlogin.php',
+// 			data: {token: token},
+// 			type: "POST", //or type:"GET" or type:"PUT"
+// 			success: function (result) {
+// 				//console.log("RESULT: "+result);
+// 				result = JSON.parse(result);
+// 				if(!result['authenticated'] || result['role'] !== 'SCOUTER') 
+// 					window.location.assign("http://localhost/steel-scout-frontend/login.html");
+// 			},
+// 			error: error()
+// 		});
+//     }
+//     else{
+//         window.location.assign("http://localhost/steel-scout-frontend/login.html");
+//     }
+// });
 
 $("#pit_submit").click(function()
 {
 	var check = true;
-	var numInputs = 1;
+	var numInputs = 9;
 	console.log("clicked");
 	event.preventDefault();
 
@@ -38,7 +38,7 @@ $("#pit_submit").click(function()
 		}
 		else
 		{
-			$("#"+name+"id").css("background-color", "#f1f1f1");
+			$("#"+name+"id").css("color", "black");
 		}
 	});
 
@@ -46,7 +46,7 @@ $("#pit_submit").click(function()
 	{
 		var input = document.getElementById("input"+i);
 
-		if(input.type == "text")
+		if(input.type == "text" || input.type == "number")
 		{
 			if(input.value == '')
 			{
@@ -73,7 +73,9 @@ $("#pit_submit").click(function()
 		console.log(typeof(undeclaredVariable));
 		$.ajax({
 			url: 'http://localhost/steel-scout-frontend/php/pitScouting.php', 
-			data: {teamNumber: $('[name=teamNumber]').val()}, 
+			data: {teamNumber: $('[name=teamNumber]').val(), radio1: $('input[type=radio][name=radio1]:checked').val(), radio2: $('input[type=radio][name=radio2]:checked').val(), 
+				driveTeamExperience: $('[name=driveTeamExperience]').val(), radio3: $('input[type=radio][name=radio3]:checked').val(), radio4: $('input[type=radio][name=radio4]:checked').val(), 
+				radio5: $('input[type=radio][name=radio5]:checked').val(), radio6: $('input[type=radio][name=radio6]:checked').val(), autonomousAbilities: $('[name=autonomousAbilities]').val()}, 
 			type: "POST", 
 			success: function(result)
 			{
