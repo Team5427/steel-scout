@@ -26,7 +26,7 @@
 $("#scouting_submit").click(function()
 {
 	var check = true;
-	var numInputs = 16
+	var numInputs = 17;
 	console.log("clicked");
 	event.preventDefault();
 
@@ -45,7 +45,7 @@ $("#scouting_submit").click(function()
 		}
 		else
 		{
-			$("#"+name+"id").css("background-color", "#f1f1f1");
+			$("#"+name+"id").css("color", "black");
 		}
 	});
 
@@ -53,7 +53,7 @@ $("#scouting_submit").click(function()
 	{
 		var input = document.getElementById("input"+i);
 
-		if(input.type == "text")
+		if(input.type == "text" || input.type == "number")
 		{
 			if(input.value == '')
 			{
@@ -85,7 +85,7 @@ $("#scouting_submit").click(function()
 				powerCellsHighTwo: $('[name=powerCellsHighTwo]').val(), powerCellsLowTwo: $('[name=powerCellsLowTwo]').val(), radio2: $('input[type=radio][name=radio2]:checked').val(), 
 				powerCellsHighThree: $('[name=powerCellsHighThree]').val(), powerCellsLowThree: $('[name=powerCellsLowThree]').val(), radio3: $('input[type=radio][name=radio3]:checked').val(), 
 				radio4: $('input[type=radio][name=radio4]:checked').val(), radio5: $('input[type=radio][name=radio5]:checked').val(), finalRP: $('[name=finalRP]').val(), 
-				radio6: $('input[type=radio][name=radio6]').val()}, 
+				radio6: $('input[type=radio][name=radio6]').val(), radio7: $('input[type=radio][name=radio7]').val()}, 
 			type: "POST", 
 			success: function(result)
 			{
