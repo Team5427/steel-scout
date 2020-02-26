@@ -35,6 +35,7 @@ $("#login_submit_button_id").click(function(){
 		        else{
 					
 					document.cookie = "token="+result.token;
+					console.log(document.cookie);
 
 					//set default pages
 					(result['role'] === "SCOUTER") && window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
@@ -56,7 +57,6 @@ $(window).on('load', function() {
 	console.log("COOKIE: "+document.cookie);
 	console.log("TOKEN: "+token);
 	if(token != null) {
-		console.log("B")
 		$.ajax({
 			url:'http://'+ip+'/steel-scout-frontend/php/confirmlogin.php',
 			data: {token: token},
@@ -66,7 +66,6 @@ $(window).on('load', function() {
 				result = JSON.parse(result);
 				if(result['authenticated']) 
 				{
-					console.log("A");
 					//set default pages
 					(result['role'] === "SCOUTER") &&  window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
 					(result['role'] === "LEAD") && window.location.assign("http://"+ip+"/steel-scout-frontend/users.html");

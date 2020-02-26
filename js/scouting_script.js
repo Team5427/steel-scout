@@ -30,11 +30,6 @@ $("#scouting_submit").click(function()
 	console.log("clicked");
 	event.preventDefault();
 
-	// for(var i = 1; i<=numInputs; i++)
-	// {
-	// 	$("#input"+i).css("color", "black");
-	// }
-
 	$("input:radio").each(function(){
 		var name = $(this).attr("name");
 		if($("input:radio[name="+name+"]:checked").length == 0)
@@ -89,29 +84,11 @@ $("#scouting_submit").click(function()
 			type: "POST", 
 			success: function(result)
 			{
-				console.log(result);
-				//result = JSON.parse(result);
-				console.log(result);
 				if(!result === "logged")
 					$("#scouting_error_message").html(result.error);
 				else
 				{
 					document.getElementById("scoutingForm").reset();
-					console.log("hi");
-					// for(var i = 1; i<=numInputs; i++)
-					// {
-					// 	var input = document.getElementById("input"+i);
-
-					// 	if(input.type == "text")
-					// 	{
-					// 		if(input.value == '')
-					// 		{
-					// 			check = false
-					// 			console.log("input"+i+" is empty");
-					// 			input.value = "";
-					// 		}
-					// 	}
-					// }
 
 					(result['role'] === "SCOUTER") && window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
 				}
