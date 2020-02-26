@@ -56,15 +56,17 @@ $(window).on('load', function() {
 	console.log("COOKIE: "+document.cookie);
 	console.log("TOKEN: "+token);
 	if(token != null) {
+		console.log("B")
 		$.ajax({
 			url:'http://'+ip+'/steel-scout-frontend/php/confirmlogin.php',
 			data: {token: token},
 			type: "POST", //or type:"GET" or type:"PUT"
 			success: function (result) {
-				//console.log("RESULT: "+result);
+				console.log("RESULT: "+result);
 				result = JSON.parse(result);
 				if(result['authenticated']) 
 				{
+					console.log("A");
 					//set default pages
 					(result['role'] === "SCOUTER") &&  window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
 					(result['role'] === "LEAD") && window.location.assign("http://"+ip+"/steel-scout-frontend/users.html");
@@ -77,17 +79,17 @@ $(window).on('load', function() {
 
 function error() {
 	console.log("FAILURE");
-	alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+	// alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
 
-	$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
-	console.log('jqXHR:');
-	console.log(jqXHR);
-	console.log('textStatus:');
-	console.log(textStatus);
-	console.log('errorThrown:');
-	console.log(errorThrown);
-	console.log('JSON return string: '); 
-	console.log(result); 
+	// $('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
+	// console.log('jqXHR:');
+	// console.log(jqXHR);
+	// console.log('textStatus:');
+	// console.log(textStatus);
+	// console.log('errorThrown:');
+	// console.log(errorThrown);
+	// console.log('JSON return string: '); 
+	// console.log(result); 
 }
 function getCookie(name) {
     var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
