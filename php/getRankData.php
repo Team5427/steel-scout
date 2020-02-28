@@ -3,6 +3,7 @@
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
 
+    //
     //connecting to SQL Database
     $con = mysqli_connect("localhost", "root", "", "steel-scout");
 

@@ -28,5 +28,13 @@ CREATE TABLE `scouting` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1
 
 CREATE TABLE `pitscouting` (
- `teamNumber` int(6) DEFAULT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1
-
+ `teamNumber` int(6) NOT NULL,
+ `radio1` tinyint(1) NOT NULL,
+ `radio2` tinyint(1) NOT NULL,
+ `driveTeamExperience` int(6) NOT NULL,
+ `radio3` tinyint(1) NOT NULL,
+ `radio4` tinyint(1) NOT NULL,
+ `radio5` tinyint(1) NOT NULL,
+ `radio6` tinyint(1) NOT NULL,
+ `autonomousAbilities` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1

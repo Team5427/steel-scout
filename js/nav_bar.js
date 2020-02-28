@@ -63,7 +63,7 @@ function load_navbar(role){
 		topteams.href = "#";
 		topteams.innerHTML = "Top Teams";
 
-		teamrankings.href = "#";
+		teamrankings.href = "./rankings.html";
 		teamrankings.innerHTML = "Team Rankings";
 
 
