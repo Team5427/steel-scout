@@ -2,14 +2,16 @@
     //CORS Headers
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
+    
+?>
 
-    //connecting to SQL Database
-    $con = mysqli_connect("localhost", "root", "", "steel-scout");
+<?php require_once("../includes/db_connection.php"); ?>
 
-
+<?php
+    
     //looking for all users username
     $sql = "SELECT * FROM users";
-    $res = mysqli_query($con, $sql);
+    $res = mysqli_query($connection, $sql);
 
 
     $rows = [];

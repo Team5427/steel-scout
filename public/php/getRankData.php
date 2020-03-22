@@ -2,14 +2,16 @@
     //CORS Headers
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
+    
+?>
 
-    //
-    //connecting to SQL Database
-    $con = mysqli_connect("localhost", "root", "", "steel-scout");
+<?php require_once("../includes/db_connection.php"); ?>
+
+<?php
 
     //looking for matching username
     $sql = "SELECT * FROM scouting";
-    $res = mysqli_query($con, $sql);
+    $res = mysqli_query($connection, $sql);
 
     function containsTeam($team, $rows){
       $contains = false;

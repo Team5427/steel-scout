@@ -2,6 +2,12 @@
     //CORS Headers
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
+    
+?>
+
+<?php require_once("../includes/db_connection.php"); ?>
+
+<?php
 
     //HTTP inputs
     // $rest_json = file_get_contents("php://input");

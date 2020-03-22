@@ -3,17 +3,17 @@
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");   
     
-    $token =  $_POST['token'];
+?>
 
+<?php require_once("../includes/db_connection.php"); ?>
 
+<?php
     
-
-    //connecting to SQL Database
-    $con = mysqli_connect("localhost", "root", "", "steel-scout");
+    $token =  $_POST['token'];
 
     //looking for matching username
     $sql = "SELECT * FROM users WHERE token=\"$token\"";
-    $res = mysqli_query($con, $sql);
+    $res = mysqli_query($connection, $sql);
     
 
     //checking where token matches

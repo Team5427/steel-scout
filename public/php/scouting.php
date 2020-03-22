@@ -1,7 +1,13 @@
-<?php
+<?php 
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
+?>
 
+<?php require_once("../includes/db_connection/php"); ?>
+
+
+
+<?php
     $teamNumber = $_POST['teamNumber'];
     $author = $_POST['author'];
     $matchNumber = $_POST['matchNumber'];
@@ -20,12 +26,9 @@
     $radio6 = $_POST['radio6'];
     $radio7 = $_POST['radio7'];
 
-    //connect to database
-    $con = mysqli_connect("localhost", "root", "", "steel-scout");
-
-    if($con -> connect_error)
+    if($connection -> connect_error)
     {
-        die("Connection failed: " . $con -> connect_error);
+        die("Connection failed: " . $connection -> connect_error);
     }
 
     $sql = "INSERT INTO scouting (teamNumber, author, matchNumber, powerCellsHighOne, powerCellsLowOne, radio1, powerCellsHighTwo, powerCellsLowTwo, radio2, powerCellsHighThree, powerCellsLowThree, radio3, radio4, radio5, finalRP, radio6, radio7)
@@ -42,5 +45,5 @@
         echo "Error: " . $sql . "<br>" . $con->error;
     }
 
-    mysqli_close($con);
+    mysqli_close($connection);
 ?>
