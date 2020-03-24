@@ -1,7 +1,7 @@
 //auto login code
-$(window).on('load', function() {
-	authenticate();
-});
+//$(window).on('load', function() {
+//	authenticate();
+//});
 
 function error(jqXHR, textStatus, errorThrown, result) {
 	console.log("FAILURE");
