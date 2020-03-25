@@ -9,15 +9,15 @@
 
 <?php
 
-    $username =  $_POST['email'];
+    $username =  $_POST['username'];
     $password =  $_POST['password'];
-    $role = $_POST['role'];
+    $admin = $_POST['admin'];
     $append = $_POST['append'];
 
     if($append){
         
         //looking for matching user
-        $sql = "INSERT INTO users (email, password, role) VALUES (\"$username\", \"$password\", \"$role\")";
+        $sql = "INSERT INTO scouters (username, password, admin) VALUES (\"$username\", \"$password\", \"$admin\")";
         $res = mysqli_query($connection, $sql);
         echo "success";
         die;
@@ -25,7 +25,7 @@
     //checks if this is not a preflight request
     else if ($username != ""){
         //looking for matching user to delete
-        $sql = "DELETE FROM users WHERE email = \"$username\"";
+        $sql = "DELETE FROM scouters WHERE username = \"$username\"";
         $res = mysqli_query($connection, $sql);
         echo "success";
         die;

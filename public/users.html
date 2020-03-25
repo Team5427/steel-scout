@@ -17,13 +17,11 @@
        
         <hr>
 
-        <input name = "email" id = "newEmail" placeholder = "email"/><br/>
+        <input name = "username" id = "newUsername" placeholder = "username"/><br/>
         <input name = "password" id = "newPass" placeholder = "password"/><br/>
         <select id = "newRole">
-            <option value="SCOUTER">SCOUTER</option>
-            <option value="LEAD">LEAD</option>
-            <option value="REP">REPRESENTATIVE</option>
-            <option value="COACH">COACH</option>
+            <option value=0>Non-Admin</option>
+            <option value=1>Admin</option>
         </select>
         <br/>
         <button name="add user" type="button" onclick="addUser()">Add</button>

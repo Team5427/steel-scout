@@ -32,7 +32,7 @@ function getCookie(name) {
 
 function load_users(){
 	$.ajax({
-		url:'http://localhost/steel-scout-frontend/php/loadUsers.php',
+		url:'http://localhost/steel-scout/includes/loadUsers.php',
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			result = JSON.parse(result);
@@ -66,13 +66,13 @@ function load_users(){
 }
 
 function addUser(){
-	var email = document.getElementById("newEmail").value;
+	var username = document.getElementById("newUsername").value;
 	var password = document.getElementById("newPass").value;
-	var role = document.getElementById("newRole").value;
+	var admin = document.getElementById("newRole").value;
 
 	$.ajax({
-		url:'http://localhost/steel-scout-frontend/php/changeUsers.php',
-		data: {email: email, password: password, role: role, append: true},
+		url:'http://localhost/steel-scout/includes/changeUsers.php',
+		data: {username: username, password: password, admin: admin, append: true},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			console.log(result);
@@ -85,8 +85,8 @@ function addUser(){
 
 function deleteUser(){
 	$.ajax({
-		url:'http://localhost/steel-scout-frontend/php/changeUsers.php',
-		data: {email: email, password: password, role: role, append: false},
+		url:'http://localhost/steel-scout/includes/changeUsers.php',
+		data: {username: username, password: password, admin: admin, append: false},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			console.log(result);
