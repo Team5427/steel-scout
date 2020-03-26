@@ -10,7 +10,7 @@
 <?php
     
     //looking for all users username
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM scouters";
     $res = mysqli_query($connection, $sql);
 
 
