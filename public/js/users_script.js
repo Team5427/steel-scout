@@ -52,7 +52,7 @@ function load_users(){
 				var pass = document.createElement("td");
 				pass.innerHTML = user.password;
 				var admin = document.createElement("td");
-				admin.innerHTML = user.admin;
+				admin.innerHTML = user.admin == 1? "ADMIN": "NON-ADMIN";
 				var del = document.createElement("td");
 				var delbutton = document.createElement("input");
 				delbutton.type = "submit";
