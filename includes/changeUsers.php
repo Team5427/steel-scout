@@ -16,7 +16,7 @@
     $admin = $_POST['admin'];
 
     //looking for all users username
-    $sql = "SELECT * FROM scouters WHERE username = \"$email\"";
+    $sql = "SELECT * FROM 2020_scouters WHERE email = \"$email\"";
     $res = mysqli_query($connection, $sql);
 
     //collects all users
@@ -26,7 +26,7 @@
    
 
     //looking for matching user
-    $sql = "INSERT INTO scouters (first_name, last_name, username, password, admin) VALUES (\"$firstname\",\"$lastname\",\"$email\", \"$password\", \"$admin\")";
+    $sql = "INSERT INTO 2020_scouters (first_name, last_name, email, password, admin) VALUES (\"$firstname\",\"$lastname\",\"$email\", \"$password\", \"$admin\")";
     $res = mysqli_query($connection, $sql);
     echo "success";
     die;

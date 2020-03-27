@@ -52,7 +52,7 @@ function load_users(){
 				var lastname = document.createElement("td");
 				lastname.innerHTML = user.last_name;
 				var email = document.createElement("td");
-				email.innerHTML = user.username;
+				email.innerHTML = user.email;
 				var pass = document.createElement("td");
 				pass.innerHTML = user.password;
 				var admin = document.createElement("td");
