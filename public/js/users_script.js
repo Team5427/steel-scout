@@ -55,6 +55,19 @@ function load_users(){
 				admin.innerHTML = user.admin == 1? "ADMIN": "NON-ADMIN";
 				var del = document.createElement("td");
 				var delbutton = document.createElement("input");
+				delbutton.value = "DELETE";
+				delbutton.onclick = function(){
+					$.ajax({
+						url:'http://localhost/steel-scout/includes/deleteUsers.php',
+						data: {scouter_id:user.scouter_id},
+						type: "POST", //or type:"GET" or type:"PUT"
+						success: function (result) {
+							console.log(result);
+							load_users();
+						},
+						error: error()
+					});
+				}
 				delbutton.type = "submit";
 				del.appendChild(delbutton);
 				row.appendChild(username);
@@ -76,7 +89,7 @@ function addUser(){
 
 	$.ajax({
 		url:'http://localhost/steel-scout/includes/changeUsers.php',
-		data: {username: username, password: password, admin: admin, append: true},
+		data: {username: username, password: password, admin: admin},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			console.log(result);
@@ -87,15 +100,17 @@ function addUser(){
 	return false;
 }
 
-function deleteUser(){
-	$.ajax({
-		url:'http://localhost/steel-scout/includes/changeUsers.php',
-		data: {username: username, password: password, admin: admin, append: false},
-		type: "POST", //or type:"GET" or type:"PUT"
-		success: function (result) {
-			console.log(result);
-			load_users();
-		},
-		error: error()
-	});
+function deleteUser(id){
+	
+		$.ajax({
+			url:'http://localhost/steel-scout/includes/deleteUsers.php',
+			data: {scouter_id:id},
+			type: "POST", //or type:"GET" or type:"PUT"
+			success: function (result) {
+				console.log(result);
+				load_users();
+			},
+			error: error()
+		});
+	
 }
