@@ -100,17 +100,3 @@ function addUser(){
 	return false;
 }
 
-function deleteUser(id){
-	
-		$.ajax({
-			url:'http://localhost/steel-scout/includes/deleteUsers.php',
-			data: {scouter_id:id},
-			type: "POST", //or type:"GET" or type:"PUT"
-			success: function (result) {
-				console.log(result);
-				load_users();
-			},
-			error: error()
-		});
-	
-}
