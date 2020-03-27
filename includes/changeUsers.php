@@ -9,12 +9,14 @@
 
 <?php
 
-    $username =  $_POST['username'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email =  $_POST['email'];
     $password =  $_POST['password'];
     $admin = $_POST['admin'];
 
     //looking for all users username
-    $sql = "SELECT * FROM scouters WHERE username = \"$username\"";
+    $sql = "SELECT * FROM scouters WHERE username = \"$email\"";
     $res = mysqli_query($connection, $sql);
 
     //collects all users
@@ -24,7 +26,7 @@
    
 
     //looking for matching user
-    $sql = "INSERT INTO scouters (username, password, admin) VALUES (\"$username\", \"$password\", \"$admin\")";
+    $sql = "INSERT INTO scouters (first_name, last_name, username, password, admin) VALUES (\"$firstname\",\"$lastname\",\"$email\", \"$password\", \"$admin\")";
     $res = mysqli_query($connection, $sql);
     echo "success";
     die;

@@ -47,8 +47,12 @@ function load_users(){
 
 			result.map(user => {
 				var row = document.createElement("tr");
-				var username = document.createElement("td");
-				username.innerHTML = user.username;
+				var firstname = document.createElement("td");
+				firstname.innerHTML = user.first_name;
+				var lastname = document.createElement("td");
+				lastname.innerHTML = user.last_name;
+				var email = document.createElement("td");
+				email.innerHTML = user.username;
 				var pass = document.createElement("td");
 				pass.innerHTML = user.password;
 				var admin = document.createElement("td");
@@ -70,7 +74,9 @@ function load_users(){
 				}
 				delbutton.type = "submit";
 				del.appendChild(delbutton);
-				row.appendChild(username);
+				row.appendChild(firstname);
+				row.appendChild(lastname);
+				row.appendChild(email);
 				row.appendChild(pass);
 				row.appendChild(admin);
 				row.appendChild(del);
@@ -83,13 +89,15 @@ function load_users(){
 }
 
 function addUser(){
-	var username = document.getElementById("newUsername").value;
+	var firstname = document.getElementById("newFirstName").value;
+	var lastname = document.getElementById("newLastName").value;
+	var email = document.getElementById("newEmail").value;
 	var password = document.getElementById("newPass").value;
 	var admin = document.getElementById("newRole").value;
 
 	$.ajax({
 		url:'http://localhost/steel-scout/includes/changeUsers.php',
-		data: {username: username, password: password, admin: admin},
+		data: {firstname: firstname, lastname: lastname, email: email, password: password, admin: admin},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			console.log(result);
