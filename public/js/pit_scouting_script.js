@@ -1,93 +1,29 @@
 
-
-// $("#pit_submit").click(function()
-// {
-// 	var check = true;
-// 	var numInputs = 9;
-// 	console.log("clicked");
-// 	event.preventDefault();
-
-// 	console.log(check);
-	
-	
-// 	window.scrollTo(0,0);
-// 	var undeclaredVariable = $('input[type=radio][name=radio6]').val();
-// 	console.log(typeof(undeclaredVariable));
-// 	$.ajax({
-// 		url: 'http://localhost/steel-scout-frontend/php/pitScouting.php', 
-// 		data: {teamNumber: $('[name=teamNumber]').val(), radio1: $('input[type=radio][name=radio1]:checked').val(), radio2: $('input[type=radio][name=radio2]:checked').val(), 
-// 			driveTeamExperience: $('[name=driveTeamExperience]').val(), radio3: $('input[type=radio][name=radio3]:checked').val(), radio4: $('input[type=radio][name=radio4]:checked').val(), 
-// 			radio5: $('input[type=radio][name=radio5]:checked').val(), radio6: $('input[type=radio][name=radio6]:checked').val(), autonomousAbilities: $('[name=autonomousAbilities]').val()}, 
-// 		type: "POST", 
-// 		success: function(result)
-// 		{
-// 			console.log(result);
-// 			//result = JSON.parse(result);
-// 			console.log(result);
-// 			if(!result === "logged")
-// 				$("#pit_error_message").html(result.error);
-// 			else
-// 			{
-// 				document.getElementById("pitScoutingForm").reset();
-// 				(result['role'] === "SCOUTER") && window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
-// 			}
-				
-// 		}, 
-// 		error: function(jqXHR, textStatus, errorThrown, result)
-// 		{
-// 			error(jqXHR, textStatus, errorThrown, result);
-// 		}
-// 		})
-	
-// });
-
-// function error(jqXHR, textStatus, errorThrown, result) {
-// 	console.log("FAILURE");
-// 	alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
-
-// 	$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
-// 	console.log('jqXHR:');
-// 	console.log(jqXHR);
-// 	console.log('textStatus:');
-// 	console.log(textStatus);
-// 	console.log('errorThrown:');
-// 	console.log(errorThrown);
-// 	console.log('JSON return string: '); 
-// 	console.log(result); 
-// }
-
-// function getCookie(name) {
-//     var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-//     return v ? v[2] : null;
-// }
-
-
-// $("pit_submit").click(function() {
-// 	console.log("a;slkdf");
-// 	$.ajax({
-// 		type: "POST",
-// 		url: "http://localhost/steel-scout-frontend/php/pitScouting.php",
-// 		data: {
-// 			teamNumber: $("#teamNumber").val(),
-// 			access_token: $("#teamNumber").val()
-// 		},
-// 		success: function(results){
-// 			alert("ok");
-// 		},
-// 		error: function(result){
-// 			alert('error');
-// 		}
-// 	});
-// });
 window.onload = function() {
 	document.getElementById("pit_submit").onclick = function() {
-		console.log(document.getElementById("input1").value);
 
-		var teamNumber = document.getElementById("input1").value;
+		var teamNumber = document.getElementById("team_number").value;
+		var driveTeamExperience = document.getElementById("drive_team_experience").value;
+		var autonomousAbilities = document.getElementById("autonomous_abilities").value;
+
+		console.log(autonomousAbilities);
+		var canClimb = document.getElementsByName("canClimb");
+		var innerPort = document.getElementsByName("innerPort");
+		var upperPort = document.getElementsByName("upperPort");
+		var lowerPort = document.getElementsByName("lowerPort");
+		var defenseBot = document.getElementsByName("defenseBot");
+
+		canClimb = realValue(canClimb);
+		innerPort = realValue(innerPort);
+		upperPort = realValue(upperPort);
+		lowerPort = realValue(lowerPort);
+		defenseBot = realValue(defenseBot);
+
+		
 
 		$.ajax({
 			url: "../includes/pitScouting.php",
-			data: {teamNumber: teamNumber},
+			data: {teamNumber: teamNumber,canClimb: canClimb, driveTeamExperience: driveTeamExperience, innerPort: innerPort, upperPort: upperPort, lowerPort: lowerPort, defenseBot: defenseBot, autonomousAbilities: autonomousAbilities},
 			type: "POST",
 			success: function(result) {
 				console.log(result);
@@ -98,4 +34,14 @@ window.onload = function() {
 		});
 		return false;
 	};
+	function realValue(x)
+	{
+		for (var i = 0; i < x.length; i++) {
+			if (x[i].checked) {
+				x=x[i].value;
+				return x;
+			}
+		}	
+	}
+
 }
