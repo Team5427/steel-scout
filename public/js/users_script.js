@@ -83,20 +83,11 @@ function load_users() {
 				editbutton.className = "editbutton btn";
 				editbutton.innerHTML = "Edit"
 				editbutton.type = "submit";
-				editbutton.id = "edit" + user.username;
+				editbutton.id = "edit" + user.email;
 				editbutton.onclick = function () {
 					event.preventDefault();
-					var username = document.activeElement.getAttribute('id').substring(4);
-					window.location.assign("edituser.html?email="+username);
-					// $.ajax({
-					// 	url: '../includes/changeUsers.php',
-					// 	data: { username: username, sender: "users"},
-					// 	type: "POST", 
-					// 	success: function (result) {
-					// 		window.location.assign("edituser.html");
-					// 	},
-					// 	error: error()
-					// });
+					var email = document.activeElement.getAttribute('id').substring(4);
+					window.location.assign("edituser.html?email="+email);
 				}
 
 				edit.appendChild(editbutton);

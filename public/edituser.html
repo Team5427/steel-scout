@@ -5,22 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User</title>
+    <link rel="stylesheet" type="text/css" href="./css/forms.css">
+    <link rel="stylesheet" type="text/css" href="./css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="./css/scouters.css" />
 </head>
 
 <body>
-    <input name="firstname" id="newFirstname" placeholder="First Name" autocomplete="false" />
-    <br />
-    <input name="lastname" id="newLastname" placeholder="Last Name" autocomplete="false" />
-    <br />
-    <input name="email" id="newEmail" placeholder="Email" autocomplete="false" />
-    <br />
-    <input name="password" id="newPass" placeholder="Password" autocomplete="false" />
-    <br />
-    <select id="newRole">
-        <option value="0">Non-Admin</option>
-        <option value="1">Admin</option>
-    </select>
-    <button id="add" name="add user" type="button" onclick="addUser()">Edit</button>
+    <div id="topnav" class="topnav"></div>
+    <form name="edituser" id="edituser">
+        <h1 class="title">Edit Scouter</h1>
+        <hr/>
+        <h2>Input new user data:</h2>
+        <div class="input_container">
+            <input name="firstname" id="newFirstname" placeholder="First Name" autocomplete="false" />
+            <br />
+            <input name="lastname" id="newLastname" placeholder="Last Name" autocomplete="false" />
+            <br />
+            <input name="email" id="newEmail" placeholder="Email" autocomplete="false" />
+            <br />
+            <input name="password" id="newPass" placeholder="Password" autocomplete="false" />
+            <br />
+            <select id="newRole">
+                <option value="0">Non-Admin</option>
+                <option value="1">Admin</option>
+            </select>
+            <br />
+            <button id="confirm" class="btn" name="confirm" type="button" onclick="editUser()">Save</button>
+            <button id="cancel" class="btn delete" name="cancel" type="button" onclick="cancelled()">Cancel</button>
+        </div>
+    </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="js/edit_user_script.js"></script>
