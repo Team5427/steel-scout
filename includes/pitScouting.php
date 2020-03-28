@@ -8,17 +8,20 @@
 <?php
 
     $teamNumber = $_POST['teamNumber'];
-    $radio1 = $_POST['radio1'];
-    $radio2 = $_POST['radio2'];
-    $driveTeamExperience = $_POST['driveTeamExperience'];
-    $radio3 = $_POST['radio3'];
-    $radio4 = $_POST['radio4'];
-    $radio5 = $_POST['radio5'];
-    $radio6 = $_POST['radio6'];
-    $autonomousAbilities = $_POST['autonomousAbilities'];
+    // $radio1 = $_POST['radio1'];
+    // $radio2 = $_POST['radio2'];
+    // $driveTeamExperience = $_POST['driveTeamExperience'];
+    // $radio3 = $_POST['radio3'];
+    // $radio4 = $_POST['radio4'];
+    // $radio5 = $_POST['radio5'];
+    // $radio6 = $_POST['radio6'];
+    // $autonomousAbilities = $_POST['autonomousAbilities'];
 
-    $sql = "INSERT INTO pitscouting (teamNumber, radio1, radio2, driveTeamExperience, radio3, radio4, radio5, radio6, autonomousAbilities) 
-    VALUES ($teamNumber, $radio1, $radio2, $driveTeamExperience, $radio3, $radio4, $radio5, $radio6, \"$autonomousAbilities\")";
+    // $sql = "INSERT INTO pitscouting (teamNumber, radio1, radio2, driveTeamExperience, radio3, radio4, radio5, radio6, autonomousAbilities) 
+    // VALUES ($teamNumber, $radio1, $radio2, $driveTeamExperience, $radio3, $radio4, $radio5, $radio6, \"$autonomousAbilities\")";
+
+    $sql = "INSERT INTO 2020_pit_scouting (team_id)
+    VALUES ($teamNumber)";
 
     if($connection->query($sql) === true)
     {
