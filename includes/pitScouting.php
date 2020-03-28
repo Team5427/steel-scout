@@ -28,6 +28,7 @@
     {
         echo "Error: " . $sql . "<br>" . $connection->error;
     }
+   
 
     mysqli_close($connection);
 ?>
