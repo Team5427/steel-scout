@@ -20,6 +20,10 @@
 //    }
 //});
 
+$(window).on('load', function(){
+	load_users();
+})
+
 function error(jqXHR, textStatus, errorThrown, result) {
 	console.log("FAILURE");
 	$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
@@ -43,19 +47,19 @@ function load_users(){
 
 			result.map(user => {
 				var row = document.createElement("tr");
-				var email = document.createElement("td");
-				email.innerHTML = user.email;
+				var username = document.createElement("td");
+				username.innerHTML = user.username;
 				var pass = document.createElement("td");
 				pass.innerHTML = user.password;
-				var role = document.createElement("td");
-				role.innerHTML = user.role;
+				var admin = document.createElement("td");
+				admin.innerHTML = user.admin == 1? "ADMIN": "NON-ADMIN";
 				var del = document.createElement("td");
 				var delbutton = document.createElement("input");
 				delbutton.type = "submit";
 				del.appendChild(delbutton);
-				row.appendChild(email);
+				row.appendChild(username);
 				row.appendChild(pass);
-				row.appendChild(role);
+				row.appendChild(admin);
 				row.appendChild(del);
 				table.appendChild(row);
 			})

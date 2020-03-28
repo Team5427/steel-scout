@@ -10,7 +10,7 @@
 <?php
     
     //looking for all users username
-    $sql = "SELECT * FROM scouters";
+    $sql = "SELECT * FROM infinite_recharge_pitscouting";
     $res = mysqli_query($connection, $sql);
 
 
