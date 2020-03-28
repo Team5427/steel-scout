@@ -7,7 +7,6 @@
 
 <?php
 
-<<<<<<< HEAD
     $teamNumber = $_POST['teamNumber'];
     // $radio1 = $_POST['radio1'];
     // $radio2 = $_POST['radio2'];
@@ -23,22 +22,6 @@
 
     $sql = "INSERT INTO 2020_pit_scouting (team_id)
     VALUES ($teamNumber)";
-=======
-    $team_id = $_POST['team_id'];
-    $competition_id = $_POST['competition_id'];
-    $climb = $_POST['climb'];
-    $adjust_level = $_POST['adjust_level'];
-    $drive_team_experience = $_POST['drive_team_experience'];
-    $inner_port = $_POST['inner_port'];
-    $higher_port = $_POST['higher_port'];
-    $lower_port = $_POST['lower_port'];
-    $defence = $_POST['defence'];
-    $autonomousAbilities = $_POST['autonomousAbilities'];
-
-
-    $sql = "INSERT INTO infinite_recharge_pitscouting (competition_id, team_id, climb, adjust_level, drive_team_experience, inner_port, higher_port, lower_port, defence, autonomousAbilities) 
-    VALUES ($competition_id, $team_id, $climb, $adjust_level, $drive_team_experience, $inner_port, $higher_port, $lower_port,$defence, \"$autonomousAbilities\")";
->>>>>>> 35e448de9482a08167026a38d238e3e541580268
 
     if($connection->query($sql) === true)
     {
