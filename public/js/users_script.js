@@ -96,7 +96,7 @@ function addUser(){
 	var admin = document.getElementById("newRole").value;
 
 	$.ajax({
-		url:'http://localhost/steel-scout/includes/changeUsers.php',
+		url:'http://localhost/steel-scout/includes/addUsers.php',
 		data: {firstname: firstname, lastname: lastname, email: email, password: password, admin: admin},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
