@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" type="text/css" href="./css/forms.css" />
-  <link rel="stylesheet" type="text/css" href="./css/navbar.css" />
-  <link rel="stylesheet" type="text/css" href="./css/scouters.css" />
-</head>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/forms.css">
+    <link rel = "stylesheet" type = "text/css" href = "./css/navbar.css" />
+    <link rel = "stylesheet" type = "text/css" href = "./css/table.css" />
+  </head>
+  
+  <body id="main">
+    <div id="topnav" class="topnav"></div>
 
-<body id="main">
-  <div id="topnav" class="topnav"></div>
-
-  <form class="users_form">
-    <div id="users_container" class="container">
-
-      <h1 class="title">Scouters</h1>
-      <hr />
-
-      <h2>Add User:</h2>
-      <div class="input_container">
-        <input name="username" id="newUsername" placeholder="Username" autocomplete="false" />
-        <br />
-        <input name="password" id="newPass" placeholder="Password" autocomplete="false" /><br />
-        <select id="newRole">
-          <option value="0">Non-Admin</option>
-          <option value="1">Admin</option>
+    <form class="users_form">
+      <div id="users_container" class="container">
+        <h1>Users</h1>
+        <hr>
+        <input name = "first name" id = "newFirstName" placeholder = "first name"/><br/>
+        <input name = "lastname" id = "newLastName" placeholder = "last name"/><br/>
+        <input name = "email" id = "newEmail" placeholder = "email"/><br/>
+        <input name = "password" id = "newPass" placeholder = "password"/><br/>
+        <select id = "newRole">
+            <option value=0>Non-Admin</option>
+            <option value=1>Admin</option>
         </select>
-        <br />
-        <button id="add" name="add user" type="button" onclick="addUser()">Add</button>
-      </div>
+        <br/>
+        <button name="add user" type="button" onclick="addUser()">Add</button>
 
-      <h2>Users:</h2>
-      <div class="table-wrapper">
-        <table class="fl-table">
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>Password</th>
-              <th>Admin</th>
-            </tr>
-          </thead>
-          <tbody id="usertable"></tbody>
-        </table>
-      </div>
-
+        <div class="table-wrapper">
+            
+          
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Admin</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id = "usertable">
+                </tbody>
+            </table>
+        </div>
     </div>
   </form>
 

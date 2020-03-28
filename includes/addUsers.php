@@ -9,37 +9,25 @@
 
 <?php
 
-    $username =  $_POST['username'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email =  $_POST['email'];
     $password =  $_POST['password'];
     $admin = $_POST['admin'];
 
-    $sql= "SELECT * FROM scouters WHERE username=?";
-    $stmt= mysqli_stmt_init($connection);
+    //looking for all users username
+    $sql = "SELECT * FROM 2020_scouters WHERE email = \"$email\"";
+    $res = mysqli_query($connection, $sql);
 
-    if(!mysqli_stmt_prepare($stmt, $sql)) 
-    {
-        exit();
-    } 
-    else 
-    {
-        mysqli_stmt_bind_param($stmt,"s",$username);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_store_result($stmt);
-        $existcount = mysqli_stmt_num_rows($stmt);
-        if($existcount!=0) 
-        {
-                exit();
-        }
+    //collects all users
+    if(mysqli_num_rows($res)>0){
+        die;
     }
+   
 
-
-    
     //looking for matching user
-    $sql = "INSERT INTO scouters (username, password, admin) VALUES (\"$username\", \"$password\", \"$admin\")";
+    $sql = "INSERT INTO 2020_scouters (first_name, last_name, email, password, admin) VALUES (\"$firstname\",\"$lastname\",\"$email\", \"$password\", \"$admin\")";
     $res = mysqli_query($connection, $sql);
     echo "success";
     die;
-    
-    
-
  ?>
