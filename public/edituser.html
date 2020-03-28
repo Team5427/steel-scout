@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+</head>
+
+<body>
+    <input name="firstname" id="newFirstname" placeholder="First Name" autocomplete="false" />
+    <br />
+    <input name="lastname" id="newLastname" placeholder="Last Name" autocomplete="false" />
+    <br />
+    <input name="email" id="newEmail" placeholder="Email" autocomplete="false" />
+    <br />
+    <input name="password" id="newPass" placeholder="Password" autocomplete="false" />
+    <br />
+    <select id="newRole">
+        <option value="0">Non-Admin</option>
+        <option value="1">Admin</option>
+    </select>
+    <button id="add" name="add user" type="button" onclick="addUser()">Edit</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/edit_user_script.js"></script>
+</body>
+
+</html>

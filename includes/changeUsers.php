@@ -1,45 +1,35 @@
 <?php
-
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Headers: *");
-    
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 ?>
 
 <?php require_once("../includes/db_connection.php"); ?>
 
 <?php
+if ($_POST['sender'] == "getold") {
+    $data = array();
+    
+    $sql = "SELECT * FROM 2020_scouters";
+    $stmt = mysqli_stmt_init($connection);
 
-    $username =  $_POST['username'];
-    $password =  $_POST['password'];
-    $admin = $_POST['admin'];
-
-    $sql= "SELECT * FROM scouters WHERE username=?";
-    $stmt= mysqli_stmt_init($connection);
-
-    if(!mysqli_stmt_prepare($stmt, $sql)) 
-    {
-        exit();
-    } 
-    else 
-    {
-        mysqli_stmt_bind_param($stmt,"s",$username);
+    if (mysqli_stmt_prepare($stmt, $sql)) {
+        mysqli_stmt_bind_param($stmt, "s", $_POST['email']);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_store_result($stmt);
-        $existcount = mysqli_stmt_num_rows($stmt);
-        if($existcount!=0) 
-        {
-                exit();
+        $result = mysqli_stmt_get_result($stmt);
+        if ($r = mysqli_fetch_assoc($result)) {
+            $data['fn'] = $r['first_name'];
+            $data['ln'] = $r['last_name'];
+            $data['un'] = $r['username'];
+            $data['pw'] = $r['password'];
+            $data['op'] = $r['admin'];
         }
+        else {
+            $data['noexist'] = true;
+        }
+        echo json_encode($data);
+    } else {
+        $data['error'] = true;
     }
-
-
-    
-    //looking for matching user
-    $sql = "INSERT INTO scouters (username, password, admin) VALUES (\"$username\", \"$password\", \"$admin\")";
-    $res = mysqli_query($connection, $sql);
-    echo "success";
-    die;
-    
-    
-
- ?>
+} else if ($_POST['sender'] == "update") {
+}
+?>

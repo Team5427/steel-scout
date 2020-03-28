@@ -20,7 +20,7 @@
 //    }
 //});
 
-$(window).on('load', function(){
+$(window).on('load', function () {
 	load_users();
 })
 
@@ -30,13 +30,13 @@ function error(jqXHR, textStatus, errorThrown, result) {
 }
 
 function getCookie(name) {
-    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-    return v ? v[2] : null;
+	var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+	return v ? v[2] : null;
 }
 
-function load_users(){
+function load_users() {
 	$.ajax({
-		url:'http://localhost/steel-scout/includes/loadUsers.php',
+		url: 'http://localhost/steel-scout/includes/loadUsers.php',
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			result = JSON.parse(result);
@@ -47,19 +47,25 @@ function load_users(){
 
 			result.map(user => {
 				var row = document.createElement("tr");
+
 				var username = document.createElement("td");
 				username.innerHTML = user.username;
+
 				var pass = document.createElement("td");
 				pass.innerHTML = user.password;
+
 				var admin = document.createElement("td");
-				admin.innerHTML = user.admin == 1? "ADMIN": "NON-ADMIN";
+				admin.innerHTML = user.admin == 1 ? "ADMIN" : "NON-ADMIN";
+
 				var del = document.createElement("td");
 				var delbutton = document.createElement("input");
-				delbutton.value = "DELETE";
-				delbutton.onclick = function(){
+				delbutton.className = "delete btn";
+				delbutton.value = "Delete";
+				delbutton.onclick = function () {
+					event.preventDefault();
 					$.ajax({
-						url:'http://localhost/steel-scout/includes/deleteUsers.php',
-						data: {scouter_id:user.scouter_id},
+						url: 'http://localhost/steel-scout/includes/deleteUsers.php',
+						data: { scouter_id: user.scouter_id },
 						type: "POST", //or type:"GET" or type:"PUT"
 						success: function (result) {
 							console.log(result);
@@ -69,10 +75,34 @@ function load_users(){
 					});
 				}
 				delbutton.type = "submit";
+
+				var edit = document.createElement("td");
+				var editbutton = document.createElement("button");
+				editbutton.className = "editbutton btn";
+				editbutton.innerHTML = "Edit"
+				editbutton.type = "submit";
+				editbutton.id = "edit" + user.username;
+				editbutton.onclick = function () {
+					event.preventDefault();
+					var username = document.activeElement.getAttribute('id').substring(4);
+					window.location.assign("edituser.html?email="+username);
+					// $.ajax({
+					// 	url: '../includes/changeUsers.php',
+					// 	data: { username: username, sender: "users"},
+					// 	type: "POST", 
+					// 	success: function (result) {
+					// 		window.location.assign("edituser.html");
+					// 	},
+					// 	error: error()
+					// });
+				}
+
+				edit.appendChild(editbutton);
 				del.appendChild(delbutton);
 				row.appendChild(username);
 				row.appendChild(pass);
 				row.appendChild(admin);
+				row.appendChild(edit);
 				row.appendChild(del);
 				table.appendChild(row);
 			})
@@ -82,14 +112,16 @@ function load_users(){
 	});
 }
 
-function addUser(){
+function addUser() {
+	event.preventDefault();
+
 	var username = document.getElementById("newUsername").value;
 	var password = document.getElementById("newPass").value;
 	var admin = document.getElementById("newRole").value;
 
 	$.ajax({
-		url:'http://localhost/steel-scout/includes/changeUsers.php',
-		data: {username: username, password: password, admin: admin},
+		url: 'http://localhost/steel-scout/includes/addUsers.php',
+		data: { username: username, password: password, admin: admin },
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			console.log(result);
