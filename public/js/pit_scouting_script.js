@@ -26,7 +26,7 @@ window.onload = function() {
 			data: {teamNumber: teamNumber,canClimb: canClimb, driveTeamExperience: driveTeamExperience, innerPort: innerPort, upperPort: upperPort, lowerPort: lowerPort, defenseBot: defenseBot, autonomousAbilities: autonomousAbilities},
 			type: "POST",
 			success: function(result) {
-				console.log(result);
+				console.log(result);	
 			},
 			error: function(result){
 				console.log("error");

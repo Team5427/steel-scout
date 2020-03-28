@@ -14,7 +14,9 @@ $(document).ready(function () {
             $("#teamid").val(result.fn);
            
         },
-        error: error()
+        error: function(result) {
+            console.log("error");
+        }
     });
 });
 
