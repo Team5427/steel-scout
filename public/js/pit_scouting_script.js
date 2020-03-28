@@ -48,14 +48,13 @@ $("#pit_submit").click(function()
 	else
 	{
 		window.scrollTo(0,0);
-		var undeclaredVariable = $('input[type=radio][name=radio6]').val();
 		console.log(typeof(undeclaredVariable));
 		$.ajax({
-			url: 'http://localhost/steel-scout-frontend/php/pitScouting.php', 
-			data: {teamNumber: $('[name=teamNumber]').val(), radio1: $('input[type=radio][name=radio1]:checked').val(), radio2: $('input[type=radio][name=radio2]:checked').val(), 
-				driveTeamExperience: $('[name=driveTeamExperience]').val(), radio3: $('input[type=radio][name=radio3]:checked').val(), radio4: $('input[type=radio][name=radio4]:checked').val(), 
-				radio5: $('input[type=radio][name=radio5]:checked').val(), radio6: $('input[type=radio][name=radio6]:checked').val(), autonomousAbilities: $('[name=autonomousAbilities]').val()}, 
-			type: "POST", 
+			url: 'http://localhost/steel-scout/includes/pitscouting.php', 
+			data: {competition_id: $('[name=competition_id]').val(), team_id: $('[name=team_id]').val(), climb: $('[name=climb]').val(), 
+				adjust_level: $('[name=adjust_level]').val(), drive_team_experience: $('[name=drive_team_experience]').val(), inner_port: $('[name=inner_port]').val(), 
+				higher_port: $('[name=higher_port]').val(), lower_port: $('[name=lower_port]').val(),defence: $('[name=defence]').val(), autonomousAbilities: $('[name=autonomousAbilities]').val()}, 
+			type: "POST",
 			success: function(result)
 			{
 				console.log(result);
@@ -66,10 +65,9 @@ $("#pit_submit").click(function()
 				else
 				{
 					document.getElementById("pitScoutingForm").reset();
-					(result['role'] === "SCOUTER") && window.location.assign("http://"+ip+"/steel-scout-frontend/scouting.html");
+					(result['role'] === "SCOUTER") && window.location.assign("http://"+ip+"/steel-scout/pit_scouting_form.html");
 				}
-				
-			}, 
+			},
 			error: function(jqXHR, textStatus, errorThrown, result)
 			{
 				error(jqXHR, textStatus, errorThrown, result);
