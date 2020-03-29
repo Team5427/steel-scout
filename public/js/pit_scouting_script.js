@@ -1,4 +1,3 @@
-
 window.onload = function() {
 	document.getElementById("pit_submit").onclick = function() {
 

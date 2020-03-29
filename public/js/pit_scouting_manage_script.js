@@ -20,7 +20,6 @@ function load_forms(){
                 var delbutton = document.createElement("input");
 
                 delbutton.type = "submit";
-                editbutton.type = "submit";
 
                 del.appendChild(delbutton);
                 row.appendChild(team_number);
