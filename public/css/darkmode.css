@@ -1,0 +1,22 @@
+body {
+    background-color: #1F2739;
+    color: #FB667A !important;
+}
+
+h1 {    
+    color: #FB667A;
+}
+
+hr {
+    border-color: rgb(61, 76, 114);
+}
+
+input, select, button {
+    background-color: rgb(22, 31, 51) !important;
+    border-color: rgb(15, 25, 50) !important;
+    color: #FB667A !important;
+}
+
+input::placeholder {
+    color: slateblue;
+}
