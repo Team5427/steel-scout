@@ -19,21 +19,21 @@ function load_users(){
 				table.removeChild(table.firstChild);
 			}
 
-			result.map(user => {
+			result.map(team => {
 				var row = document.createElement("tr");
-				var username = document.createElement("td");
-				username.innerHTML = user.username;
-				var pass = document.createElement("td");
-				pass.innerHTML = user.password;
-				var admin = document.createElement("td");
-				admin.innerHTML = user.admin == 1? "ADMIN": "NON-ADMIN";
+				var team_id = document.createElement("td");
+				team_id.innerHTML = team.team_id;
+				var team_number = document.createElement("td");
+				team_number.innerHTML = user.team_number;
+				var team_name = document.createElement("td");
+				team_name.innerHTML = user.team_name;
 				var del = document.createElement("td");
 				var delbutton = document.createElement("input");
 				delbutton.type = "submit";
 				del.appendChild(delbutton);
-				row.appendChild(username);
-				row.appendChild(pass);
-				row.appendChild(admin);
+				row.appendChild(team_id);
+				row.appendChild(team_number);
+				row.appendChild(team_name);
 				row.appendChild(del);
 				table.appendChild(row);
 			})

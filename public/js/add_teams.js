@@ -20,10 +20,6 @@
 //    }
 //});
 
-$(window).on('load', function(){
-	load_users();
-})
-
 function error(jqXHR, textStatus, errorThrown, result) {
 	console.log("FAILURE");
 	$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
@@ -34,18 +30,17 @@ function getCookie(name) {
     return v ? v[2] : null;
 }
 
-function addUser(){
-	var username = document.getElementById("newUsername").value;
-	var password = document.getElementById("newPass").value;
-	var admin = document.getElementById("newRole").value;
+function addTeam(){
+	var teamNumber = document.getElementById("newTeamNumber").value;
+	var teamName = document.getElementById("newTeamName").value;
 
 	$.ajax({
-		url:'http://localhost/steel-scout/includes/changeUsers.php',
-		data: {username: username, password: password, admin: admin, append: true},
+		url:'http://localhost/steel-scout/includes/addTeams.php',
+		data: {teamNumber, teamName},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			console.log(result);
-			load_users();
+			load_teams();
 		},
 		error: error()
 	});
