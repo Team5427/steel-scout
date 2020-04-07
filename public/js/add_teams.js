@@ -20,11 +20,11 @@
 //    }
 //});
 
-function error(error) {
-	console.log("FAILURE");
-	console.log(error)
-	// $('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
-}
+// function error(error) {
+// 	console.log("FAILURE");
+// 	console.log(error)
+// 	// $('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
+// }
 
 function getCookie(name) {
     var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
@@ -45,7 +45,7 @@ function addTeam(){
 			else
 				document.getElementById("add_team_error").innerHTML = "Failed to add a team: "+result.error;
 		},
-		error: error(error)
+		// error: error(error)
 	});
 	return false;
 }

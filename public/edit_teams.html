@@ -12,12 +12,12 @@
     <div id="edit_teams_container" class="container">
       <h1 class="title">Edit Teams</h1>
       <hr>
-      <p id = "edit_team_error" style = "color:red;"></p>
+      <!-- <p id = "edit_team_error" style = "color:red;"></p> -->
       <div class="input_container">
-        <input type  = "number" id="editTeamNumber" placeholder="team number" /><br />
+        <input type  = "number" id="editTeamNumber"  name="teamnum" placeholder="enter team number" /><br />
         <br />
         <button type="button" onclick="Save()">Save</button>
-        <!-- <button type="button" onclick="Cancel()">Save</button> -->
+        <button id="cancel"  name="cancel" type="button" onclick="cancelled()">Cancel</button>
       </div>
     </div>
   </form>

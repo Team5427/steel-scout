@@ -1,5 +1,5 @@
 $(window).on('load', function(){
-	load_users();
+	load_teams();
 })
 
 function error(jqXHR, textStatus, errorThrown, result) {
@@ -8,7 +8,7 @@ function error(jqXHR, textStatus, errorThrown, result) {
 }
 
 
-function load_users(){
+function load_teams(){
 	$.ajax({
 		url:'../includes/manage_teams.php',
 		type: "POST", //or type:"GET" or type:"PUT"

@@ -1,4 +1,4 @@
-var email = "";
+var team = "";
 
 $(document).ready(function () {
     var team = getTeamFromURL();
@@ -9,8 +9,7 @@ $(document).ready(function () {
         success: function (result) {
             console.log(result);
             result = JSON.parse(result);
-            // $("#newFirstname").val(result.fn);
-            $("#newTeamID").val(result.team_id)
+            $("#editTeamNumber").val(result.team)
 
         },
         error: error()
@@ -22,7 +21,7 @@ function getTeamFromURL() {
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         vars[key] = value;
     });
-    return vars["email"];
+    return vars["team"];
 }
 
 function error(jqXHR, textStatus, errorThrown, result) {
@@ -31,13 +30,11 @@ function error(jqXHR, textStatus, errorThrown, result) {
 }
 
 function editTeam() {
+    var team_number = document.getElementById("editTeamNumber").value;
     console.log("Confirmed!")
     $.ajax({
         url: '../includes/edit_teams.php',
-        data: {
-             team_id: $("#newTeamID").val(), 
-
-        },
+        data: {team_number},
         type: "POST",
         success: function (result) {
             console.log(result);
