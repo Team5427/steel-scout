@@ -10,7 +10,7 @@ function error(jqXHR, textStatus, errorThrown, result) {
 
 function load_users(){
 	$.ajax({
-		url:'http://localhost/steel-scout/includes/loadUsers.php',
+		url:'../includes/manage_teams.php',
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			result = JSON.parse(result);
@@ -24,16 +24,23 @@ function load_users(){
 				var team_id = document.createElement("td");
 				team_id.innerHTML = team.team_id;
 				var team_number = document.createElement("td");
-				team_number.innerHTML = user.team_number;
-				var team_name = document.createElement("td");
-				team_name.innerHTML = user.team_name;
+				team_number.innerHTML = team.team_number;
+				var edit = document.createElement("td");
+				var editbutton = document.createElement("input");
+				editbutton.value = "edit"
+				editbutton.type = "submit";
+				editbutton.onclick = function(){
+					window.location.assign('edit_teams.html');
+				}
 				var del = document.createElement("td");
 				var delbutton = document.createElement("input");
+				delbutton.value = "delete"
 				delbutton.type = "submit";
 				del.appendChild(delbutton);
+				edit.appendChild(editbutton);
 				row.appendChild(team_id);
 				row.appendChild(team_number);
-				row.appendChild(team_name);
+				row.appendChild(edit);
 				row.appendChild(del);
 				table.appendChild(row);
 			})

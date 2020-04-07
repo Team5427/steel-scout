@@ -20,9 +20,10 @@
 //    }
 //});
 
-function error(jqXHR, textStatus, errorThrown, result) {
+function error(error) {
 	console.log("FAILURE");
-	$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
+	console.log(error)
+	// $('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
 }
 
 function getCookie(name) {
@@ -31,18 +32,20 @@ function getCookie(name) {
 }
 
 function addTeam(){
-	var teamNumber = document.getElementById("newTeamNumber").value;
-	var teamName = document.getElementById("newTeamName").value;
+	var team_number = document.getElementById("newTeamNumber").value;
 
 	$.ajax({
-		url:'http://localhost/steel-scout/includes/addTeams.php',
-		data: {teamNumber, teamName},
+		url:'http://localhost/steel-scout/includes/new_teams.php',
+		data: {team_number},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
-			console.log(result);
-			load_teams();
+			result = JSON.parse(result);
+			if(result.success)
+				window.location.assign("./manage_teams.html");
+			else
+				document.getElementById("add_team_error").innerHTML = "Failed to add a team: "+result.error;
 		},
-		error: error()
+		error: error(error)
 	});
 	return false;
 }
