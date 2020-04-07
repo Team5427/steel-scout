@@ -50,3 +50,7 @@ function addTeam(){
 	return false;
 }
 
+function cancel(){
+	window.location.assign("./manage_teams.html");
+}
+
