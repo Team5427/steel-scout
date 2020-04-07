@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit User</title>
+    <title>Edit Pitscouting</title>
     <link rel="stylesheet" type="text/css" href="./css/forms.css">
-    <!-- <link rel="stylesheet" type="text/css" href="./css/scouters.css" /> -->
+    <link rel="stylesheet" type="text/css" href="./css/scouting.css" />
 </head>
 
 <body>
@@ -15,20 +15,44 @@
         <hr />
         <h2>Input new Pit Scouting Data data:</h2>
         <div class="input_container">
-            <input name="team_id" id="team_id" placeholder="Team Number" autocomplete="false" />
+            <label  for="team_id"><b>Team Number</b></label><br>
+            <input name="team_id" id="edit_team_id" placeholder="Team Number" autocomplete="false" />
             <br />
-            <!-- <input name="lastname" id="newLastname" placeholder="Last Name" autocomplete="false" />
-            <br />
-            <input name="email" id="newEmail" placeholder="Email" autocomplete="false" />
-            <br />
-            <input name="password" id="newPass" placeholder="Password" autocomplete="false" />
-            <br />
-            <select id="newRole">
-                <option value="0">Non-Admin</option>
-                <option value="1">Admin</option>
-            </select>
-            <br /> -->
-            <button id="confirm" class="btn" name="confirm" type="button" onclick="editUser()">Save</button>
+            
+            <label  for="canClimb"><b>Can Climb</b></label><br>
+            <input id="yes_climb" name="canClimb" type="radio" value="1"> Yes<br>
+            <input id="no_climb" name="canClimb" type="radio" value="0"> No<br>
+            <br>
+          
+            <label  for="driveTeamExperience"><b>Average Drive Team Experience (Years)</b></label>
+            <input id="edit_drive_team_experience" name="drive_team_exp" type="number" placeholder="Enter number">
+            <br>     
+            
+            <label  for="innerPort"><b>Can Shoot Inner Port</b></label><br>
+            <input id="yes_inner" name="inner" type="radio" value="1"> Yes<br>
+            <input id="no_inner" name="inner" type="radio" value="0"> No<br>
+            <br>
+            
+            <label  for="upperPort"><b>Can Shoot Upper Port</b></label><br>
+            <input id="yes_upper" name="higher" type="radio" value="1"> Yes<br>
+            <input id="no_upper" name="higher" type="radio" value="0"> No<br>
+            <br>
+            
+            <label for="lowerPort"><b>Can Shoot Lower Port</b></label><br>
+            <input id="yes_lower" name="lower" type="radio" value="1"> Yes<br>
+            <input id="no_lower" name="lower" type="radio" value="0"> No<br>
+            <br>
+            
+            <label  for="defenseBot"><b>Defense bot</b></label><br>
+            <input id="yes_defense" name="defense" type="radio" value="1"> Yes<br>
+            <input id="no_defense" name="defense" type="radio" value="0"> No<br>
+            <br>
+            
+            <label  for="autonomousAbilities"><b>Autonomous abilities</b></label>
+            <input id="edit_auto" name="autonomousAbilities" type="text" placeholder="Enter text">
+            <br>
+            
+            <button id="confirm" class="btn" name="confirm" type="button" onclick="edit_pitscouting_form()">Save</button>
             <button id="cancel" class="btn delete" name="cancel" type="button" onclick="cancelled()">Cancel</button>
         </div>
     </form>

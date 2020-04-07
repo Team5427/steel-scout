@@ -18,11 +18,24 @@ function load_forms(){
 				team_number.innerHTML = form.team_id;
                 var del = document.createElement("td");
                 var delbutton = document.createElement("input");
+					
+				delbutton.type = "submit";
+				
+				var edit = document.createElement("td");
+				var editButton = document.createElement("button");
+				editButton.type="submit";
+				editButton.innerHTML= "Edit";
+				editButton.id=  "edit" + form.team_id;
+				editButton.onclick = function () {
+					event.preventDefault();
+					var team_id = document.activeElement.getAttribute('id').substring(4);
+					window.location.assign("edit_pitscouting.html?team_id=" + team_id);
+				}
 
-                delbutton.type = "submit";
-
-                del.appendChild(delbutton);
-                row.appendChild(team_number);
+				del.appendChild(delbutton);
+				edit.appendChild(editButton);
+				row.appendChild(team_number);
+				row.appendChild(edit);
 				row.appendChild(del);
 				table.appendChild(row);
 			})

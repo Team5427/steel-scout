@@ -1,4 +1,3 @@
-//Sai, u might have to fix lines 11,31
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -16,10 +15,14 @@ if ($_POST['sender'] == "getold") {
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         if ($r = mysqli_fetch_assoc($result)) {
-            $data['fn'] = $r['first_name'];
-            // $data['ln'] = $r['last_name'];
-            // $data['em'] = $r['email'];
-            // $data['pw'] = $r['password'];
+            $data['team_id'] = $r['team_id'];
+             $data['canClimb'] = $r['climb']; 
+             $data['inner'] = $r['inner_port'];
+             $data['higher'] = $r['higher_port'];
+             $data['lower'] = $r['lower_port'];
+             $data['drive_team_exp'] = $r['drive_team_experience'];
+             $data['defense'] = $r['defense'];
+             $data['auto'] = $r['autonomous_abilities'];
         }
         else {
             $data['noexist'] = true;
@@ -28,22 +31,30 @@ if ($_POST['sender'] == "getold") {
         $data['error'] = true;
     }
 } else if ($_POST['sender'] == "update") {
-        $sql = "UPDATE 2020_pit_scouting SET team_id=?, WHERE team_id=?";
-
-    // $sql = "UPDATE 2020_pit_scouting SET team_id=?, last_name=?, email=?, password=?, admin=? WHERE email=?";
+    $sql = "UPDATE 2020_pit_scouting SET team_id=?, climb=?, drive_team_experience=?, inner_port=?, higher_port=?, lower_port=?, defense=?, autonomous_abilities=? WHERE team_id=?";
+    // $sql = "UPDATE 2020_pit_scouting SET team_id=?, climb=?, drive_team_experience=?, WHERE team_id=?";
     $stmt = mysqli_stmt_init($connection);
     if (mysqli_stmt_prepare($stmt, $sql)) {
-        $fn = $_POST['team_id'];
-        // $ln = $_POST['lastname'];
-        // $em = $_POST['email'];
-        // $pw = $_POST['password'];
-        // mysqli_stmt_bind_param($stmt, "ssssss",$fn,$ln,$em,$pw,$em);
-         mysqli_stmt_bind_param($stmt, "ssssss",$fn);
-        mysqli_stmt_execute($stmt);
-        $data['success']= true;
+        $team_id = $_POST['team_id'];
+        $canClimb = $_POST['canClimb'];
+        $avgexp = (int)($_POST['avgdexp']);
+        $inner = $_POST['inner'];
+        $upper = $_POST['upper'];
+        $lower = $_POST['lower'];
+        $defense = $_POST['defense'];
+        $auton = $data['auton'] = $_POST['auton'];
+        $old = $_POST['oldID'];
+        mysqli_stmt_bind_param($stmt, "ssissssss",$team_id,$canClimb,$avgexp,$inner,$upper,$lower,$defense,$auton,$_POST['oldID']);
+        if(mysqli_stmt_execute($stmt)) {
+            $data['success']= true;
+        }
+        else {
+            $data['success']= false; 
+        }
     }
     else {
         $data['error'] = true;
+        $data['emsg'] = mysqli_stmt_error($stmt);
     }
 }
 echo json_encode($data);
