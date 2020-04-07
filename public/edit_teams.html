@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./css/forms.css">
+</head>
+
+<body id="main">
+
+  <form class="edit_teams_form">
+    <div id="edit_teams_container" class="container">
+      <h1 class="title">Edit Teams</h1>
+      <hr>
+      <p id = "edit_team_error" style = "color:red;"></p>
+      <div class="input_container">
+        <input type  = "number" id="editTeamNumber" placeholder="team number" /><br />
+        <br />
+        <button type="button" onclick="Save()">Save</button>
+        <!-- <button type="button" onclick="Cancel()">Save</button> -->
+      </div>
+    </div>
+  </form>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/edit_teams.js"></script>
+</body>
+
+</html>
