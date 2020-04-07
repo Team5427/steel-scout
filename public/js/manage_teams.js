@@ -50,3 +50,6 @@ function load_users(){
 	});
 }
 
+function addNewTeam(){
+	window.location.assign('./add_teams.html')
+}
