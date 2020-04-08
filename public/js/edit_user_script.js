@@ -3,7 +3,7 @@ var email = "";
 $(document).ready(function () {
     var email = getEmailFromURL();
     $.ajax({
-        url: '../includes/changeUsers.php',
+        url: '../includes/edit_user.php',
         data: { email: email, sender: "getold" },
         type: "POST",
         success: function (result) {
@@ -37,7 +37,7 @@ function error(jqXHR, textStatus, errorThrown, result) {
 function editUser() {
     console.log("Confirmed!")
     $.ajax({
-        url: '../includes/changeUsers.php',
+        url: '../includes/edit_user.php',
         data: {
             firstname: $("#newFirstname").val(),
             lastname: $("#newLastname").val(),
