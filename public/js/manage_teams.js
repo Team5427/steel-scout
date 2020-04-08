@@ -14,7 +14,7 @@ function load_teams(){
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			result = JSON.parse(result);
-			table = document.getElementById("usertable");
+			table = document.getElementById("teamstable");
 			while (table.firstChild) {
 				table.removeChild(table.firstChild);
 			}
@@ -53,3 +53,9 @@ function load_teams(){
 function addNewTeam(){
 	window.location.assign('./add_teams.html')
 }
+
+function editTeam(){
+	window.location.assign('./edit_teams.html')
+}
+
+

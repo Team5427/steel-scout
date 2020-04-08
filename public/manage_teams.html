@@ -8,13 +8,18 @@
     </head>
 
     <body id="main">
-    <button type="button" onclick="addNewTeam()">Add Team</button>
     <div id="topnav" class="topnav"></div>
         <table class="fl-table">
             <thead>
                 <tr>
                     <th>Team ID</th>
                     <th>Team Number</th>
+                    <th>Add</th>
+                    <button type="button" onclick="addNewTeam()">Add</button>
+                    <th>Edit</th>
+                    <button type="button" onclick="editTeam()">Edit</button>
+                    <th>Delete</th>
+                    <button type="button" onclick="deleteTeam()">Delete</button>
                 </tr>
             </thead>
             <tbody id="usertable"></tbody>
