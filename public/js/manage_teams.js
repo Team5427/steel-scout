@@ -38,6 +38,21 @@ function load_teams(){
 				var delbutton = document.createElement("input");
 				delbutton.value = "delete";
 				delbutton.type = "submit";
+				delbutton.onclick = function(){
+					event.preventDefault();
+					var team_id = team.team_id;
+					$.ajax({
+						url:'../includes/delete_teams.php',
+						type: "POST", //or type:"GET" or type:"PUT"
+						data:{team_id},
+						success: function (result) {
+							// result = JSON.parse(result);
+							console.log(result);
+							load_teams();
+						},
+						error: function(){console.log("error")}
+					});
+				}
 				del.appendChild(delbutton);
 				edit.appendChild(editbutton);
 				row.appendChild(team_id);
