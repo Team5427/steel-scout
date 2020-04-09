@@ -27,14 +27,16 @@ function load_teams(){
 				team_number.innerHTML = team.team_number;
 				var edit = document.createElement("td");
 				var editbutton = document.createElement("input");
-				editbutton.value = "edit"
+				editbutton.value = "edit";
 				editbutton.type = "submit";
 				editbutton.onclick = function(){
-					window.location.assign('edit_teams.html');
+					event.preventDefault();
+					var team_id = team.team_id;
+					window.location.assign("edit_teams.html?team_id="+team_id);
 				}
 				var del = document.createElement("td");
 				var delbutton = document.createElement("input");
-				delbutton.value = "delete"
+				delbutton.value = "delete";
 				delbutton.type = "submit";
 				del.appendChild(delbutton);
 				edit.appendChild(editbutton);
@@ -54,8 +56,5 @@ function addNewTeam(){
 	window.location.assign('./add_teams.html')
 }
 
-function editTeam(){
-	window.location.assign('./edit_teams.html')
-}
 
 
