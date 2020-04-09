@@ -1,4 +1,5 @@
-window.onload = function() {
+$(window).on('load', function(){
+
 	document.getElementById("pit_submit").onclick = function() {
 
 		var teamNumber = document.getElementById("team_number").value;
@@ -41,3 +42,4 @@ window.onload = function() {
 		}	
 	}
 }
+)
