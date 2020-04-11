@@ -28,7 +28,7 @@ function load_forms(){
 					{
 					event.preventDefault();
 					$.ajax({
-						url: '../includes/delete_pit_scouting.php',
+						url: '../includes/remove_pit_scouting.php',
 						data: { team_number: form.team_id, pit_scouting_id:form.pit_scouting_id },
 						type: "POST", //or type:"GET" or type:"PUT"
 						success: function (result) {
