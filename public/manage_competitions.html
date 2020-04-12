@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./css/forms.css">
+  <link rel="stylesheet" type="text/css" href="./css/navbar.css" />
+  <link rel="stylesheet" type="text/css" href="./css/scouters.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="./css/darkmode.css" /> -->
+</head>
+
+<body id="main">
+  <div id="topnav" class="topnav"></div>
+
+  <form class="users_form">
+    <div id="users_container" class="container">
+      <h1 class="title">Competitions</h1>
+      <hr>
+      <div class="input_container">
+        <br />
+        <button name="add user" type="button" onclick="addCompetition()">Add Competition</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="fl-table">
+          <thead>
+            <tr>
+              <th>Competition Name</th>
+              <th>Date</th>
+              <th>Season</th>
+            </tr>
+          </thead>
+          <tbody id="comptable">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/manage_competitions_script.js"></script>
+  <script src="js/nav_bar.js"></script>
+</body>
+
+</html>
