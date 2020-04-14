@@ -10,6 +10,7 @@
 <?php
     $team_id = $_POST['team_id'];
     $scouter_id = $_POST['scouter_id'];
+    $competition_id = $_POST['competition_id'];
 //    $matchNumber = $_POST['matchNumber'];
 //    $powerCellsHighOne = $_POST['powerCellsHighOne'];
 //    $powerCellsLowOne = $_POST['powerCellsLowOne'];
@@ -31,7 +32,7 @@
         die("Connection failed: " . $connection -> connect_error);
     }
 
-    $sql = "INSERT INTO 2020_scouting (team_id, scouter_id) VALUES ($team_id, $scouter_id)";
+    $sql = "INSERT INTO 2020_scouting (team_id, scouter_id, competition_id) VALUES ($team_id, $scouter_id, $competition_id)";
 
     if($connection->query($sql) === true)
     {

@@ -73,8 +73,8 @@ $("#scouting_submit").click(function()
 		window.scrollTo(0,0);
 		$.ajax({
 			url: 'http://localhost/steel-scout/includes/new_scouting.php', 
-			data: {team_id: $('[name=team_id]').val(), scouter_id: $('[name=scouter_id]').val()
-//                                , competition_id: $('[name=author]').val(), match_number: $('[name=matchNumber]').val(), 
+			data: {team_id: $('[name=team_id]').val(), scouter_id: $('[name=scouter_id]').val(), competition_id: $('[name=competition_id]').val()
+//                                , match_number: $('[name=matchNumber]').val(), 
 //				powerCellsHighOne: $('[name=powerCellsHighOne]').val(), powerCellsLowOne: $('[name=powerCellsLowOne]').val(), radio1: $('input[type=radio][name=radio1]:checked').val(),
 //				powerCellsHighTwo: $('[name=powerCellsHighTwo]').val(), powerCellsLowTwo: $('[name=powerCellsLowTwo]').val(), radio2: $('input[type=radio][name=radio2]:checked').val(), 
 //				powerCellsHighThree: $('[name=powerCellsHighThree]').val(), powerCellsLowThree: $('[name=powerCellsLowThree]').val(), radio3: $('input[type=radio][name=radio3]:checked').val(), 
