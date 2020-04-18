@@ -1,4 +1,4 @@
-    <?php
+<?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 ?>
@@ -7,33 +7,36 @@ header("Access-Control-Allow-Headers: *");
 <?php
 $data = array();
 if ($_POST['sender'] == "getold") {
-    $sql = "SELECT * FROM seasons WHERE season_id=?";
+    $sql = "SELECT * FROM 2020_competitions WHERE competition_id=?, season_id =?";
     $stmt = mysqli_stmt_init($connection);
 
     if (mysqli_stmt_prepare($stmt, $sql)) {
-        mysqli_stmt_bind_param($stmt, "s", $_POST['season_id']);
+        mysqli_stmt_bind_param($stmt, "ss", $_POST['competition_id'],$_POST['season_id']);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         if ($r = mysqli_fetch_assoc($result)) {
-            $data['competition_name'] = $r['competition_name'];
-            $data['competition_date'] = $r['competition_date'];
-            $data['season_id'] = $r['season_id'];
+            $data['competition_id'] = $r['competition_id'];
+            $data['name'] = $r['competition_name'];
+            $data['date'] = $r['competition_date'];
+            $data['season'] = $r['season_id'];
         }
-        else {
+        else {      
             $data['noexist'] = true;
         }
     } else {
         $data['error'] = true;
     }
 } else if ($_POST['sender'] == "update") {
-        $sql = "UPDATE  2020_competitions SET competition_id=?, WHERE competition_id=?";
+        $sql = "UPDATE teams SET competition_name=?, competition_date=? WHERE competition_id=?, season_id =?";
 
     $stmt = mysqli_stmt_init($connection);
     if (mysqli_stmt_prepare($stmt, $sql)) {
-        $competition_name = $_POST['competition_name'];
-        $competition_date = $_POST['competition_date']
-        $season_id = $_POST['season_id']
-        mysqli_stmt_bind_param($stmt, "sss",$competition_name,$competition_date,$season_id);
+        $competition_id = $_POST['oldID'];
+        $name = $_POST['competition_name'];
+        $date = $_POST['competition_date'];
+        $season = $_POST['season_id'];
+
+        mysqli_stmt_bind_param($stmt, "sss",$name,$date,$season,$competition_id);
         mysqli_stmt_execute($stmt);
         $data['success']= true;
     }

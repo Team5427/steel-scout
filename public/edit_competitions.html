@@ -13,15 +13,16 @@
     <h1>Add Competition</h1>
     <form class="comp_form">
         <div class="input_container">
-            <input name="competition_name" id="competition_name" placeholder="Competition Name" /><br />
-            <input name="competition_date" type="date" id="competition_date" /><br />
+            <input name="name" id="name" placeholder="Competition Name" /><br />
+            <input name="date" type="date" id="date" /><br />
 
-            <input list="seasons" id="season_id" placeholder="Season Name">
+            <input list="seasons" id="season" placeholder="Season Name">
             <datalist id="seasons">
+
             </datalist>
             <br />
 
-            <button name="add user" type="button" onclick="editComp()">Edit</button>
+            <button name="add user" type="button" onclick="addComp()">Add</button>
             <button name="add user" type="button" onclick="cancelled()">Cancel</button>
         </div>
     </form>

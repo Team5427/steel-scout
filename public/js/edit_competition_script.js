@@ -1,44 +1,54 @@
-var season_id = 0;
+var comp = "";
+
 $(document).ready(function () {
-    var season_id = getSeasonID();
+    var team_id = getIDFromURL();
+    console.log(competition_id);
     $.ajax({
         url: '../includes/edit_competitions.php',
-        data: { season_id: season_id, sender: "getold" },
+        data: { competition_id, sender: "getold" },
         type: "POST",
         success: function (result) {
             console.log(result);
             result = JSON.parse(result);
+            $("#name").val(result.name)
+            $("#name").val(result.date)
+            $("#name").val(result.season)
 
-            // $("#season_id").val(result.fn);
 
         },
-        error: function (result) {
-            console.log("error");
-        }
+        error: error()
     });
 });
 
-function getSeasonID() {
+function getIDFromURL() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         vars[key] = value;
     });
-    return vars["season_id"];
+    return vars["competition_id"];
 }
 
+function error(jqXHR, textStatus, errorThrown, result) {
+    console.log("FAILURE");
+    $('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
+}
+
+function editTeam() {
+    var name = document.getElementById("name").value;
+    var date = document.getElementById("date").value;
+    var season = document.getElementById("season").value;
 
 
-function editComp() {
     console.log("Confirmed!")
     $.ajax({
         url: '../includes/edit_competitions.php',
-        data: { competition_name, compeition_date, season_id, sender: "update" },
+        data: { name,date,season, sender: "update", oldID: getIDFromURL() },
         type: "POST",
         success: function (result) {
             console.log(result);
             result = JSON.parse(result);
             if (result.success) {
-                window.location.assign("manage_competitons.html");
+                window.location.assign("manage_competitions.html");
             }
         },
         error: error()
@@ -47,5 +57,5 @@ function editComp() {
 
 function cancelled() {
     console.log("Cancelled!")
-    window.location.assign("edit_competitons.html");
+    window.location.assign("manage_competitions.html");
 }
