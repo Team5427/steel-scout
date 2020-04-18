@@ -9,6 +9,8 @@ function loadSeasons() {
 		type: "POST",
 		success: function (result) {
 			result = JSON.parse(result);
+			console.log(result);
+
 			$.each(result.seasons, function( index, value ) {
 				var x = value.season_name;
 				$("#seasons").append("<option id=\""+ value.season_id +"\" value=\""+ value.season_name + "\"/>");
