@@ -58,18 +58,15 @@ function load_competitions() {
 				var del = document.createElement("td");
 				var delbutton = document.createElement("input");
 				delbutton.className = "delete btn";
+				$(delbutton).attr('rel', "modal:open")
 				delbutton.value = "Delete";
 				delbutton.onclick = function () {
 					event.preventDefault();
-					$.ajax({
-						url: '../includes/delete_competition.php',
-						data: { comp_id: comp.competition_id },
-						type: "POST", //or type:"GET" or type:"PUT"
-						success: function (result) {
-							console.log(result);
-							load_competitions();
-						},
-						error: error()
+					this.blur(); // Manually remove focus from clicked link.
+					$.get(this.href, function (html) {
+						$('#modal').modal();
+						$('#modal').data("compid", comp.competition_id);
+						$('#m_info').html("The competition named <b>" + comp.competition_name + "</b> with the date of <b>" + comp.competition_date  + "</b> in the <b>" + comp.season_name + '</b> season?')
 					});
 				}
 				delbutton.type = "submit";
@@ -82,7 +79,7 @@ function load_competitions() {
 				editbutton.id = "edit" + comp.competition_id;
 				editbutton.onclick = function () {
 					event.preventDefault();
-					window.location.assign("edit_competition.html?compid="+comp.competition_id);
+					window.location.assign("edit_competition.html?compid=" + comp.competition_id);
 				}
 
 				edit.appendChild(editbutton);
@@ -101,7 +98,23 @@ function load_competitions() {
 	});
 }
 
-function addCompetition(){
+function addCompetition() {
 	window.location.assign("add_competitions.html");
 }
 
+$(document).ready(function (e) {
+	$('#submit').on('click', function () {
+		var compid = $('#modal').data('compid')
+		$.ajax({
+			url: '../includes/delete_competition.php',
+			data: { comp_id: compid},
+			type: "POST", //or type:"GET" or type:"PUT"
+			success: function (result) {
+				console.log(result);
+				load_competitions();
+			},
+			error: error()
+		});
+		$('#modal').removeData("compid");
+	});
+});
