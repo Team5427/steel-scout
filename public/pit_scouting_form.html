@@ -1,76 +1,65 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <link rel="stylesheet" type="text/css" href="./css/forms.css">
-        <link rel="stylesheet" type="text/css" href="./css/login.css">
-        <link rel="stylesheet" type="text/css" href="./css/scouting.css">
-        <link rel="stylesheet" type="text/css" href="./css/navbar.css">
-        <script type = "text/javascript" src = "js/scouting_script.js"></script>
+        <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src= "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel= "stylesheet" type = "text/css" href= "./css/forms.css">
+        <link rel= "stylesheet" type = "text/css" href= "./css/scouting.css">
+        <script type = "text/javascript" src = "js/pit_scouting_script.js"></script>
     </head>
     <body>
-        <div id = "topnav" class = "topnav"></div>
 
         <form id  = "pitScoutingForm">
             <h1>Pit Scouting Form</h1>
-            <p id = "pit_error_message"></p>
-            <br/>
+            <p id = "pit_scout_error_message_id"></p>
+            <br>
             <hr>
-
-            <label id = "input1_label_id" for = "teamNumber"><b>Team Number</b></label>
-            <input id = "input1" type = "number" placeholder="Enter Team Number" name = "teamNumber">
+            <label id = "team_number_id" for = "teamNumber"><b>Team Number</b></label>
+            <input id = "team_number" name = "teamNumber" type = "number" placeholder= "Enter Team Number">
             <br>
 
-            <label id = "radio1id" for = "canClimb"><b>Can climb</b></label><br>
-            <input type="radio" name="radio1" id = "input2" value="1"> Yes<br>
-            <input type="radio" name="radio1" id = "input2" value="0"> No<br>
+            <label id = "can_climb" for = "canClimb"><b>Can Climb</b></label><br>
+            <input id = "yes_climb" name = "canClimb" type = "radio" value = "1"> Yes<br>
+            <input id = "no_climb" name = "canClimb" type = "radio" value = "0"> No<br>
             <br>
 
-            <label id = "radio2id" for = "stageOneFinished"><b>Can adjust to level</b></label><br>
-            <input type="radio" name="radio2" id = "input3" value="1"> Yes<br>
-            <input type="radio" name="radio2" id = "input3" value="0"> No<br>
+            <label id = "drive_team_experience_id" for = "driveTeamExperience"><b>Average Drive Team Experience (Years)</b></label>
+            <input id = "drive_team_experience" name = "driveTeamExperience" type = "number" placeholder= "Enter number">
             <br>
 
-            <label id = "input4_label_id" for = "driveTeamExperience"><b>Average drive team experience</b></label>
-            <input id = "input4" type = "number" placeholder="Enter number" name = "driveTeamExperience">
+            <label id= "inner_port_id" for= "innerPort"><b>Can Shoot Inner Port</b></label><br>
+            <input id = "yes_inner" name = "innerPort" type = "radio" value = "1"> Yes<br>
+            <input id = "no_inner" name = "innerPort" type = "radio" value = "0"> No<br>
             <br>
 
-            <label id = "radio3id" for = "innerPort"><b>Can shoot inner port</b></label><br>
-            <input type="radio" name="radio3" id = "input5" value="1"> Yes<br>
-            <input type="radio" name="radio3" id = "input5" value="0"> No<br>
+            <label id= "upper_port_id" for= "upperPort"><b>Can Shoot Upper Port</b></label><br>
+            <input id = "yes_upper" name = "upperPort" type = "radio" value = "1"> Yes<br>
+            <input id = "no_upper" name = "upperPort" type = "radio" value = "0"> No<br>
             <br>
 
-            <label id = "radio4id" for = "upperPort"><b>Can shoot upper port</b></label><br>
-            <input type="radio" name="radio4" id = "input6" value="1"> Yes<br>
-            <input type="radio" name="radio4" id = "input6" value="0"> No<br>
+            <label id= "lower_port_id" for= "lowerPort"><b>Can Shoot Lower Port</b></label><br>
+            <input id = "yes_lower" name = "lowerPort" type = "radio" value = "1"> Yes<br>
+            <input id = "no_lower" name = "lowerPort" type = "radio" value = "0"> No<br>
             <br>
 
-            <label id = "radio5id" for = "lowerPort"><b>Can shoot lower port</b></label><br>
-            <input type="radio" name="radio5" id = "input7" value="1"> Yes<br>
-            <input type="radio" name="radio5" id = "input7" value="0"> No<br>
+            <label id= "defense_bot_id" for= "defenseBot"><b>Defense bot</b></label><br>
+            <input id = "yes_defense" name = "defenseBot" type = "radio" value = "1"> Yes<br>
+            <input id = "no_defense" name = "defenseBot" type = "radio" value = "0"> No<br>
             <br>
 
-            <label id = "radio6id" for = "lowerPort"><b>Defense bot</b></label><br>
-            <input type="radio" name="radio6" id = "input8" value="1"> Yes<br>
-            <input type="radio" name="radio6" id = "input8" value="0"> No<br>
-            <br>
-
-            <label id = "input9_label_id" for = "autonomousAbilities"><b>Autonomous abilities</b></label>
-            <input id = "input9" type = "text" placeholder="Enter text" name = "autonomousAbilities">
+            <label id = "autonomous_abilities_id" for = "autonomousAbilities"><b>Autonomous abilities</b></label>
+            <input id = "autonomous_abilities" name = "autonomousAbilities" type = "text" placeholder = "Enter text" >
             <br>
             
             
         </form>
 
-        <div style="text-align:center;"> <!--This is needed to align elements at the center.-->
-        <button id = pit_submit class = "pitSubmitButton">SUBMIT</button>
+        <div style = "text-align:center;"> <!--This is needed to align elements at the center.-->
+        <button id = "pit_submit" class = "pitSubmitButton">Submit</button>
         </div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="js/pit_scouting_script.js"></script>
+        <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src= "js/pit_scouting_script.js"></script>
         
     </body>
 
-    <script src="js/nav_bar.js"></script>
 </html>
