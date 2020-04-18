@@ -67,3 +67,20 @@ function load_teams(){
 function addNewTeam(){
 	window.location.assign('./add_teams.html')
 }
+
+$(document).ready(function (e) {
+	$('#submit').on('click', function () {
+		var team = $('#modal').data('team')
+		$.ajax({
+			url: '../includes/delete_teams.php',
+			data: { team: team },
+			type: "POST", //or type:"GET" or type:"PUT"
+			success: function (result) {
+				console.log(result);
+				load_teams();
+			},
+			error: error()
+		});
+		$('#modal').removeData("team");
+	});
+});
