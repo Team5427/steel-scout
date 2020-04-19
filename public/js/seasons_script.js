@@ -1,8 +1,11 @@
 
 window.onload = function() {
+    document.getElementById("seasons_cancel").onclick = function(){
+        //location.href = "./manage_seasons.html"
+    }
 	document.getElementById("seasons_submit").onclick = function() {
 
-		
+        
 		var seasonName = document.getElementById("season_name").value;
         var seasonYears = document.getElementById("season_years").value;
 		console.log(seasonName);
@@ -14,13 +17,15 @@ window.onload = function() {
 			data: {seasonName : seasonName,seasonYears : seasonYears},
 			type: "POST",
 			success: function(result) {
-				console.log(result);
+                console.log(result);
+                //location.href = "./manage_seasons.html";
 			},
 			error: function(result){
 				console.log("error");
 			}
 		});
-		return false;
+        return false;
+        
 	};
 	function realValue(x)
 	{

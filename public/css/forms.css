@@ -45,6 +45,26 @@ input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
   width: 100%;
   opacity: 0.9;
 }
+.seasonsSubmitButton{
+  background-color: #4d4dff;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9; 
+}
+.seasonsCancelButton{
+  background-color: #4d4dff;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
 
 /* Overwrite default styles of hr */
 hr {
