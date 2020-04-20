@@ -8,7 +8,9 @@ $("#scouting_submit").click(function()
 	$.ajax({
             url: 'http://localhost/steel-scout/includes/new_scouting.php', 
 	    data:{
-                team: $('[name=team]').val()
+                team: $('[name=team]').val(), 
+                competition: $('[name=competition').val(), 
+                scouter: $('[name=scouter]').val()
             }, 
             type: "POST", 
             success: function(result)
