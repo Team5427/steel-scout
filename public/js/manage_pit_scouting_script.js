@@ -1,6 +1,12 @@
 $(window).on('load', function(){
 	load_forms();
 })
+
+function addPitScouting() {
+	window.location.assign("pit_scouting_form.html");
+}
+
+
 function load_forms(){
 	$.ajax({
 		url:'http://localhost/steel-scout/includes/loadPitScoutingForms.php',
