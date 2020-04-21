@@ -1,7 +1,7 @@
 
 window.onload = function() {
     document.getElementById("seasons_cancel").onclick = function(){
-        //location.href = "./manage_seasons.html"
+        location.href = "./manage_seasons.html"
     }
 	document.getElementById("seasons_submit").onclick = function() {
 
@@ -18,7 +18,7 @@ window.onload = function() {
 			type: "POST",
 			success: function(result) {
                 console.log(result);
-                //location.href = "./manage_seasons.html";
+                location.href = "./manage_seasons.html";
 			},
 			error: function(result){
 				console.log("error");
