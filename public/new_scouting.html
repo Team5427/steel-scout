@@ -29,47 +29,70 @@
             <input id = "competition_id" type = "number" placeholder="Enter" name = "competition">
 
             <label id = "match_number_label_id" for = "match_number"><b>Match Number</b></label>
-            <input id = "match_number_id" type = "number" placeholder="Enter Match Number" name = "match_number">
+            <input id = "match_number_id" type = "number" placeholder="Enter Match Number" name = "match">
            
-            <!--
             <h2>Autonomous</h2>
-            <label id = "input4_label_id" for = "pwrCellsOne"><b>Power Cells Higher Port</b></label>
-            <input id="input4" type ="number" placeholder="Enter Number" name = "powerCellsHighOne">
+            <label id = "auto_line_label_id" for = "auto_line"><b>Initiation Line</b></label><br>
+            <input type="radio" name="auto_line" id = "auto_line_id" value="1"> Yes<br>
+            <input type="radio" name="auto_line" id = "auto_line_id" value="0"> No<br>
+			
+            <label id = "auto_high_target_label_id" for = "auto_high_target"><b>Power Cells In High Port</b></label>
+            <input id = "auto_high_target_id" type = "number" placeholder="Enter" name = "auto_high_target">
 
-            <label id = "input5_label_id" for = "pwrCellsOne"><b>Power Cells Lower Port</b></label>
-            <input id="input5" type ="number" placeholder="Enter Number" name = "powerCellsLowOne">
-            
-            <label id = "radio1id" for = "stageOneFinished"><b>Finished Stage 1</b></label><br>
-            <input type="radio" name="radio1" id = "input6" value="1"> Yes<br>
-            <input type="radio" name="radio1" id = "input6" value="0"> No<br>
+      
+            <label id = "auto_low_target_label_id" for = "auto_low_target"><b>Power Cells In Low Port</b></label>
+            <input id = "auto_low_target_id" type = "number" placeholder="Enter" name = "auto_low_target">
+
+
+			<label id = "auto_collect_balls_label_id" for = "auto_collect_balls"><b>Collect Balls</b></label><br>
+            <input id = "auto_collect_balls_id" type = "number" placeholder="Enter" name = "auto_collect_balls">
+             
+            <h2>Stage 1</h2>
+
+            <label id = "stage1_high_target_label_id" for = "high_target1"><b>Power Cells In Higher Port</b></label>
+            <input id="stage1_high_target_id" type ="number" placeholder="Enter" name = "high_target1">
+
+            <label id = "stage1_low_target_label_id" for = "low_target1"><b>Power Cells In Lower Port</b></label>
+            <input id="stage1_low_target_id" type ="number" placeholder="Enter" name = "low_target1">
+
+            <label id = "stage1_completed_label_id" for = "stage1_completed"><b>Stage One Completed</b></label><br>
+            <input type="radio" name="stage1_completed" id = "stage1_completed_id" value="1"> Yes<br>
+            <input type="radio" name="stage1_completed" id = "stage1_completed_id" value="0"> No<br>
             <br>
-
+			
             <h2>Stage 2</h2>
 
-            <label id = "input7_label_id" for = "pwrCellsTwo"><b>Power Cells Higher Port</b></label>
-            <input id="input7" type ="number" placeholder="Enter Number" name = "powerCellsHighTwo">
+            <label id = "stage2_high_target_label_id" for = "high_target2"><b>Power Cells In Higher Port</b></label>
+            <input id="stage2_high_target_id" type ="number" placeholder="Enter" name = "high_target2">
 
-            <label id = "input8_label_id" for = "pwrCellsTwo"><b>Power Cells Lower Port</b></label>
-            <input id="input8" type ="number" placeholder="Enter Number" name = "powerCellsLowTwo">
 
-            <label id = "radio2id" for = "rotationControl"><b>Rotation Control</b></label><br>
-            <input type="radio" name="radio2" id = "input9" value="1"> Yes<br>
-            <input type="radio" name="radio2" id = "input9" value="0"> No<br>
+            <label id = "stage2_low_target_label_id" for = "low_target2"><b>Power Cells In Lower Port</b></label>
+            <input id="stage2_low_target_id" type ="number" placeholder="Enter" name = "low_target2">
+			
+            <label id = "rotation_control_label_id" for = "rotation_control"><b>Rotation Control</b></label><br>
+            <input type="radio" name="rotation_control" id = "rotation_control_id" value="1"> Yes<br>
+            <input type="radio" name="rotation_control" id = "rotation_control_id" value="0"> No<br>
             <br>
+            
+			<h2>Stage 3</h2>
+			
+			<label id = "stage3_high_target_label_id" for = "high_target3"><b>Power Cells In Higher Port</b></label>
+            <input id="stage3_high_target_id" type ="number" placeholder="Enter" name = "high_target3">
 
-            <h2>Stage 3</h2>
+            <label id = "stage3_low_target_label_id" for = "low_target3"><b>Power Cells In Lower Port</b></label>
+            <input id="stage3_low_target_id" type ="number" placeholder="Enter" name = "low_target3">
 
-            <label id = "input10_label_id" for = "pwrCellsThree"><b>Power Cells Higher Port</b></label>
-            <input id="input10" type ="number" placeholder="Enter Number" name = "powerCellsHighThree">
+            <label id = "stage3_completed_label_id" for = "stage3_completed"><b>Stage Three Completed</b></label><br>
+            <input type="radio" name="stage3_completed" id = "stage3_completed_id" value="1"> Yes<br>
+            <input type="radio" name="stage3_completed" id = "stage3_completed_id" value="0"> No<br>
 
-            <label id = "input11_label_id" for = "pwrCellsThree"><b>Power Cells Lower Port</b></label>
-            <input id="input11" type ="number" placeholder="Enter Number" name = "powerCellsLowThree">
-
-            <label id = "radio3id" for = "positionControl"><b>Position Control</b></label><br>
-            <input type="radio" name="radio3" id = "input12" value="1"> Yes<br>
-            <input type="radio" name="radio3" id = "input12" value="0"> No<br>
+			<label id = "position_control_label_id" for = "position_control"><b>Position Control</b></label><br>
+            <input type="radio" name="position_control" id = "position_control_id" value="1"> Yes<br>
+            <input type="radio" name="position_control" id = "position_control_id" value="0"> No<br>
+            
             <br>
-
+            <!--
+  
             <h2>Endgame</h2>
             <label id = "radio4id" for = "hanging"><b>Parked or Hanging?</b></label><br>
             <input type="radio" name="radio4" id = "input13" value="1"> Parked<br>
