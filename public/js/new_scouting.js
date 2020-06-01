@@ -1,3 +1,10 @@
+$("#scouting_clear").click(function()
+{
+	document.getElementById("scoutingForm").reset();
+	console.log("cleared");
+
+});
+
 $("#scouting_submit").click(function()
 {
 	var check = true;
@@ -12,20 +19,20 @@ $("#scouting_submit").click(function()
                 competition: $('[name=competition').val(), 
                 scouter: $('[name=scouter]').val(),
                 match: $('[name=match]').val(),          
-                auto_line: $('[name=auto_line]').val(),
+                auto_line: $('input[type=radio][name=auto_line]:checked').val(),
                 auto_high: $('[name=auto_high_target]').val(),
                 auto_low: $('[name=auto_low_target]').val(),
                 auto_collect: $('[name=auto_collect_balls]').val(),           
                 stage1_high: $('[name=high_target1]').val(),
                 stage1_low: $('[name=low_target1]').val(),
-                stage1_complete: $('[name=stage1_completed]').val(),               
+                stage1_complete: $('input[type=radio][name=stage1_completed]:checked').val(),               
                 stage2_high: $('[name=high_target2]').val(),
                 stage2_low: $('[name=low_target2]').val(),
-                rotation_control: $('[name=rotation_control]').val(),
+                rotation_control: $('input[type=radio][name=rotation_control]:checked').val(),
                 stage3_high: $('[name=high_target3]').val(),
                 stage3_low: $('[name=low_target3]').val(),
-                position_control: $('[name=position_control]').val(),
-                stage3_complete: $('[name=stage3_completed]').val()
+                position_control: $('input[type=radio][name=position_control]:checked').val(),
+                stage3_complete: $('input[type=radio][name=stage3_completed]:checked').val()
                 
             }, 
             type: "POST", 
