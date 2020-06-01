@@ -18,7 +18,12 @@ function load_forms(){
 				var row = document.createElement("tr");
 				var season_years = document.createElement("td");
 				season_years.innerHTML = form.season_id;
-
+				var edit = document.createElement("td");
+				var editbutton = document.createElement("input");
+				editbutton.className = "delete btn";
+				editbutton.value = "Edit"; 
+				editbutton.type = "submit";
+				$(delbutton).attr('rel', "modal:open")
                 var del = document.createElement("td");
 				var delbutton = document.createElement("input");
 				delbutton.className = "delete btn";
@@ -41,9 +46,10 @@ function load_forms(){
 			//	}
 				
 				delbutton.type = "submit";
-
+				edit.appendChild(editbutton);
                 del.appendChild(delbutton);
-                row.appendChild(season_years);
+				row.appendChild(season_years);
+				row.appendChild(edit);
 				row.appendChild(del);
 				table.appendChild(row);
 			})
