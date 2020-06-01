@@ -14,15 +14,13 @@ function load_teams(){
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			result = JSON.parse(result);
-			table = document.getElementById("teamstable");
+			table = document.getElementById("usertable");
 			while (table.firstChild) {
 				table.removeChild(table.firstChild);
 			}
 
 			result.map(team => {
 				var row = document.createElement("tr");
-				var team_id = document.createElement("td");
-				team_id.innerHTML = team.team_id;
 				var team_number = document.createElement("td");
 				team_number.innerHTML = team.team_number;
 				var edit = document.createElement("td");
@@ -52,7 +50,6 @@ function load_teams(){
 
 				del.appendChild(delbutton);
 				edit.appendChild(editbutton);
-				row.appendChild(team_id);
 				row.appendChild(team_number);
 				row.appendChild(edit);
 				row.appendChild(del);
