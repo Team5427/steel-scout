@@ -61,6 +61,11 @@ function error(jqXHR, textStatus, errorThrown, result) {
 	console.log("FAILURE");
 	$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
 }
+
+function addNewSeason(){
+	//TODO: Link to add seasons html file
+}
+
 $(document).ready(function (e) {
 	$('#submit').on('click', function () {
 		var seasonid = $('#modal').data('seasonid')
