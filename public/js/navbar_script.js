@@ -8,6 +8,12 @@ function loadNavbar(){
         nav.removeChild(table.firstChild);
     }
 
+
+
+    var steel = document.createElement("a");
+    steel.href = "pit_scouting_manage.html";
+    steel.innerHTML = "Steel-Scout";
+
     var pitscoutref = document.createElement("a");
     pitscoutref.href = "pit_scouting_manage.html";
     pitscoutref.innerHTML = "Pit Scout";
@@ -37,6 +43,7 @@ function loadNavbar(){
     rankingsref.innerHTML = "Rankings"
     rankingsref.href = "manage_rankings.html";
 
+    nav.appendChild(steel);
     nav.appendChild(pitscoutref);
     nav.appendChild(scoutref)
     nav.appendChild(competitionsref)
