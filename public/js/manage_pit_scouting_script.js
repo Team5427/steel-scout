@@ -63,8 +63,8 @@ function load_forms(){
 						$('#modal').modal();
 						// $('#modal').data("team_id", form.team_id, "pit_scouting_id", form.pit_scouting_id);
 						$('#modal').data("team_id", form.team_id);
-						$('#m_info').html("Are you sure you want to delete: \nTeam Number: "+form.team_id+"\nClimb: "+form.climb+"\nAdjust Level: "+form.adjust_level+"\nDrive Team Experience: "+form.drive_team_experience+"\nInner Port: "+form.inner_port+"\nHigher Port: "+form.higher_port+"\nLower Port: "+form.lower_port+"\nDefense: "+form.defense+"\nAutonomous Abilities: "+form.autonomous_abilities+"\n");
 					});
+						$('#m_info').html("Are you sure you want to delete: \nTeam Number: "+form.team_id+"\nClimb: "+form.climb+"\nAdjust Level: "+form.adjust_level+"\nDrive Team Experience: "+form.drive_team_experience+"\nInner Port: "+form.inner_port+"\nHigher Port: "+form.higher_port+"\nLower Port: "+form.lower_port+"\nDefense: "+form.defense+"\nAutonomous Abilities: "+form.autonomous_abilities+"\n");
 				}
 				delbutton.type = "submit";
 
