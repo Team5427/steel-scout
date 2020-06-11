@@ -1,40 +1,28 @@
 
-window.onload = function() {
-    document.getElementById("seasons_cancel").onclick = function(){
-        location.href = "./manage_seasons.html"
-    }
-	document.getElementById("seasons_submit").onclick = function() {
 
-        
-		var seasonName = document.getElementById("season_name").value;
-        var seasonYears = document.getElementById("season_years").value;
-		console.log(seasonName);
-        
-		
+function getCookie(name) {
+	var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+	return v ? v[2] : null;
+}
 
-		$.ajax({
-			url: "../includes/seasons.php",
-			data: {seasonName : seasonName,seasonYears : seasonYears},
-			type: "POST",
-			success: function(result) {
-                console.log(result);
-                location.href = "./manage_seasons.html";
-			},
-			error: function(result){
-				console.log("error");
-			}
-		});
-        return false;
-        
-	};
-	function realValue(x)
-	{
-		for (var i = 0; i < x.length; i++) {
-			if (x[i].checked) {
-				x=x[i].value;
-				return x;
-			}
-		}	
-	}
+function addSeason() {
+	var season_name = document.getElementById("newSeason").value;
 
+	$.ajax({
+		url: 'http://localhost/steel-scout/includes/seasons.php',
+		data: { seasonName },
+		type: "POST", //or type:"GET" or type:"PUT"
+		success: function (result) {
+			result = JSON.parse(result);
+			if (result.success)
+				window.location.assign("./manage_seasons.html");
+			else
+				document.getElementById("add_seasons_error").innerHTML = "Failed to add a season: " + result.error;
+		},
+	});
+	return false;
+}
+
+function cancel() {
+	window.location.assign("./manage_seasons.html");
 }
