@@ -32,7 +32,15 @@ $("#scouting_submit").click(function()
                 stage3_high: $('[name=high_target3]').val(),
                 stage3_low: $('[name=low_target3]').val(),
                 position_control: $('input[type=radio][name=position_control]:checked').val(),
-                stage3_complete: $('input[type=radio][name=stage3_completed]:checked').val()
+                stage3_complete: $('input[type=radio][name=stage3_completed]:checked').val(),
+                ended_status: $('[name=end_status]').val(),
+                is_level : $('input[type=radio][name=level]:checked').val(),
+                final_RP : $('[name=finalRP]').val(),
+                is_defense : $('input[type=radio][name=defenseBot]:checked').val(),
+                inner_port : $('input[type=radio][name=innerPort]:checked').val()
+                
+
+
                 
             }, 
             type: "POST", 

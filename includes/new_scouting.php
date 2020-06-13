@@ -31,12 +31,19 @@
     $position_id = $_POST['position_control'];
     $stage3_complete_id = $_POST['stage3_complete'];
     
+    $ended_status_id = $_POST['ended_status'];
+    $is_level_id = $_POST['is_level'];
+    $final_RP_id = $_POST['final_RP'];
+    $is_defense_id = $_POST['is_defense'];
+    $inner_port_id = $_POST['inner_port'];
+
+    
     if($connection -> connect_error)
     {
         die("Connection failed: " . $connection -> connect_error);
     }
 
-    $sql = "INSERT INTO 2020_scouting (team_id, scouter_id, competition_id, match_number,auto_line,auto_high_target,auto_low_target,auto_collect_balls,stage1_high_target,stage1_low_target, stage1_completed,stage2_high_target,stage2_low_target,rotation_control, stage3_high_target,stage3_low_target,stage3_completed,position_control) VALUES ($team_id, $scouter_id, $competition_id, $match_number_id,$auto_line_id,$auto_high_id,$auto_high_id,$auto_collect_id,$stage1_high_id,$stage1_low_id,$stage1_complete_id,$stage2_high_id,$stage2_low_id,$rotation_id,$stage3_high_id,$stage3_low_id,$stage3_complete_id,$position_id)";
+    $sql = "INSERT INTO 2020_scouting (team_id, scouter_id, competition_id, match_number,auto_line,auto_high_target,auto_low_target,auto_collect_balls,stage1_high_target,stage1_low_target, stage1_completed,stage2_high_target,stage2_low_target,rotation_control, stage3_high_target,stage3_low_target,stage3_completed,position_control,end_status,shield_gen_level,finalRP,defense,inner_port) VALUES ($team_id, $scouter_id, $competition_id, $match_number_id,$auto_line_id,$auto_high_id,$auto_high_id,$auto_collect_id,$stage1_high_id,$stage1_low_id,$stage1_complete_id,$stage2_high_id,$stage2_low_id,$rotation_id,$stage3_high_id,$stage3_low_id,$stage3_complete_id,$position_id,$ended_status_id,$is_level_id,$final_RP_id,$is_defense_id,$inner_port_id)";
 
     if($connection->query($sql) === true)
     {
