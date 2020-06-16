@@ -7,18 +7,19 @@
 
 <?php
 
-    $teamNumber = $_POST['teamNumber'];
-    $canClimb = $_POST['canClimb'];
-    $driveTeamExperience = $_POST['driveTeamExperience'];
-    $innerPort = $_POST['innerPort'];
-    $upperPort = $_POST['upperPort'];
-    $lowerPort = $_POST['lowerPort'];
-    $defenseBot = $_POST['defenseBot'];
-    $autonomousAbilities = $_POST['autonomousAbilities'];
+    $team_id = $_POST['team'];
+//     $canClimb = $_POST['canClimb'];
+//     $driveTeamExperience = $_POST['driveTeamExperience'];
+//     $innerPort = $_POST['innerPort'];
+//     $upperPort = $_POST['upperPort'];
+//     $lowerPort = $_POST['lowerPort'];
+//     $defenseBot = $_POST['defenseBot'];
+//     $autonomousAbilities = $_POST['autonomousAbilities'];
 
-    $sql = "INSERT INTO 2020_pit_scouting (team_id, climb, drive_team_experience, inner_port, higher_port, lower_port, defense, autonomous_abilities) 
-    VALUES ($teamNumber, $canClimb, $driveTeamExperience, $innerPort, $upperPort, $lowerPort, $defenseBot, \"$autonomousAbilities\")";
-
+    $sql = "INSERT INTO 2020_pit_scouting (team_id) 
+    VALUES ($team_id)";
+    // $canClimb, $driveTeamExperience, $innerPort, $upperPort, $lowerPort, $defenseBot, \"$autonomousAbilities\"
+    //  climb, drive_team_experience, inner_port, higher_port, lower_port, defense, autonomous_abilities
 
     if($connection->query($sql) === true)
     {
