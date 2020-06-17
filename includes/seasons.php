@@ -8,7 +8,6 @@
 <?php
 
     $seasonName = $_POST['seasonName'];
-    // $seasonYears = $_POST['seasonYears'];
 
 
     $sql = "INSERT INTO seasons (season_id, season_name)

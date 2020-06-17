@@ -6,11 +6,11 @@ function getCookie(name) {
 }
 
 function addSeason() {
-	var season_name = document.getElementById("newSeason").value;
+	var season_name = document.getElementById("season_name").value;
 
 	$.ajax({
 		url: 'http://localhost/steel-scout/includes/seasons.php',
-		data: { seasonName },
+		data: { season_name },
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
 			result = JSON.parse(result);
