@@ -6,9 +6,11 @@
     require_once("db_connection.php"); 
 
     $team_number = $_POST['team_number'];
+    $team_name = $_POST['team_name'];
+
 
     //looking for all users username
-    $sql = "SELECT * FROM teams WHERE team_number = \"$team_number\"";
+    $sql = "SELECT * FROM teams WHERE team_number= \"$team_number\",\"$team_name\"";
     $res = mysqli_query($connection, $sql);
 
     //collects all users
@@ -18,7 +20,7 @@
     }
     else{
         //looking for matching user
-        $sql = "INSERT INTO teams (team_number) VALUES (\"$team_number\")";
+        $sql = "INSERT INTO teams (team_number,team_name) VALUES (\"$team_number\",\"$team_name\")";
         $res = mysqli_query($connection, $sql);
 
         $response = array('success' => true);

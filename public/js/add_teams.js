@@ -1,30 +1,3 @@
-//$(window).on('load', function() {
-//	let token = getCookie("token");
-//	if(token != null) {
-//		$.ajax({
-//			url:'http://localhost/steel-scout-frontend/php/confirmlogin.php',
-//			data: {token: token},
-//			type: "POST", //or type:"GET" or type:"PUT"
-//			success: function (result) {
-//				result = JSON.parse(result);
-//				if(!result['authenticated'] || result['role'] !== 'LEAD') {
-//					window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");
-//				}
-//				load_users();
-//			},	
-//			error: error()
-//		});
-//    }
-//    else{
-//        window.location.assign("http://"+ip+"/steel-scout-frontend/login.html");
-//    }
-//});
-
-// function error(error) {
-// 	console.log("FAILURE");
-// 	console.log(error)
-// 	// $('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
-// }
 
 function getCookie(name) {
     var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
@@ -33,13 +6,18 @@ function getCookie(name) {
 
 function addTeam(){
 	var team_number = document.getElementById("newTeamNumber").value;
+	var team_name = document.getElementById("newTeamName").value;
 
 	$.ajax({
 		url:'http://localhost/steel-scout/includes/new_teams.php',
-		data: {team_number},
+		data: {team_number,team_name},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
+			
 			result = JSON.parse(result);
+			console.log(team_number);
+			console.log(team_name);
+
 			if(result.success)
 				window.location.assign("./manage_teams.html");
 			else

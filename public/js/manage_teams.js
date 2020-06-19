@@ -22,7 +22,9 @@ function load_teams(){
 			result.map(team => {
 				var row = document.createElement("tr");
 				var team_number = document.createElement("td");
+				var team_name = document.createElement("td");
 				team_number.innerHTML = team.team_number;
+				team_name.innerHTML = team.team_name;
 				var edit = document.createElement("td");
 				var editbutton = document.createElement("input");
 				editbutton.value = "edit";
@@ -51,11 +53,11 @@ function load_teams(){
 				del.appendChild(delbutton);
 				edit.appendChild(editbutton);
 				row.appendChild(team_number);
+				row.appendChild(team_name);
 				row.appendChild(edit);
 				row.appendChild(del);
 				table.appendChild(row);
 			})
-
 		},
 		error: error()
 	});

@@ -4,21 +4,20 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="./css/forms.css">
-  <!-- <link rel="stylesheet" type="text/css" href="./css/navbar.css" /> -->
 </head>
 
 <body id="main">
-  <div id="topnav" class="topnav"></div>
-
   <form class="users_form">
     <div id="users_container" class="container">
       <h1 class="title">Teams</h1>
       <hr>
       <p id = "add_team_error" style = "color:red;"></p>
       <div class="input_container">
-        <input type  = "number" id="newTeamNumber" placeholder="team number" /><br />
+        <input type  = "number" id="newTeamNumber" placeholder="Team Number"/><br />
+        <input type = "text" id="newTeamName" placeholder="Team Name"/><br />
         <br />
-        
+      
+     
         <button type="button" onclick="cancel()">Cancel</button>
         <button type="button" onclick="addTeam()">Submit</button>
       </div>
@@ -27,7 +26,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="js/add_teams.js"></script>
-  <!-- <script src="js/nav_bar.js"></script> -->
 </body>
 
 </html>
