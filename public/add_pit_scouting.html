@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src= "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel= "stylesheet" type = "text/css" href= "./css/forms.css">
+        <link rel= "stylesheet" type = "text/css" href= "./css/scouting.css">
+        <script type = "text/javascript" src = "js/add_pit_scouting.js"></script>
+    </head>
+    <body>
+
+        <form id  = "pitScoutingForm">
+
+            <h1>Pit Scouting Form</h1>
+            <p id = "pit_scout_error_message_id"></p>
+            <br>
+
+            <hr>
+
+            <label id = "scouter_label_id" for = "scouter"><b>Scouter</b></label>
+            <input id = "scouter_id" name = "scouter" type = "number" placeholder= "Enter scouter">
+            <br>
+            <label id = "competition_label_id" for = "competition"><b>Competition</b></label>
+            <input id = "competition_id" name = "competition" type = "number" placeholder= "Enter competition">
+            <br>
+            <label id = "team_label_id" for = "team"><b>Team</b></label>
+            <input id = "team" name = "team" type = "number" placeholder= "Enter team">
+            <br>
+
+            <hr>
+
+            <label id = "climb_label_id" for = "climb"><b>Can climb</b></label><br>
+            <input id = "climb_id" name = "climb" type = "radio" value= "1"> Yes <br>
+            <input id = "climb_id" name = "climb" type = "radio" value= "0"> No <br>
+            <br>
+            <label id = "adjust_label_id" for = "adjust_level"><b>Can adjust to level</b></label><br>
+            <input id = "adjust_level_id" name = "adjust_level" type = "radio" value= "1"> Yes <br>
+            <input id = "adjust_level_id" name = "adjust_level" type = "radio" value= "0"> No <br>
+            <br>
+
+            <hr>
+
+            <label id = "drive_team_experience_label_id" for = "drive_team_experience"><b>Drive team experience</b></label>
+            <input id = "drive_team_experience_id" name = "drive_team_experience" type = "number" placeholder= "Enter number of years">
+            <br>
+            <label id = "inner_port_label_id" for = "inner_port"><b>Can shoot to inner port</b></label><br>
+            <input id = "inner_port_id" name = "inner_port" type = "radio" value= "1"> Yes <br>
+            <input id = "inner_port_id" name = "inner_port" type = "radio" value= "0"> No <br>
+            <br>
+            <label id = "higher_port_label_id" for = "higher_port"><b>Can shoot to higher port</b></label><br>
+            <input id = "higher_port_id" name = "higher_port" type = "radio" value= "1"> Yes <br>
+            <input id = "higher_port_id" name = "higher_port" type = "radio" value= "0"> No <br>
+            <br>
+            <label id = "lower_port_label_id" for = "lower_port"><b>Can shoot to lower port</b></label><br>
+            <input id = "lower_port_id" name = "lower_port" type = "radio" value= "1"> Yes <br>
+            <input id = "lower_port_id" name = "lower_port" type = "radio" value= "0"> No <br>
+            <br>
+            <label id = "defense_label_id" for = "defense"><b>Can play defense</b></label><br>
+            <input id = "defense_id" name = "defense" type = "radio" value= "1"> Yes <br>
+            <input id = "defense_id" name = "defense" type = "radio" value= "0"> No <br>
+            <br>
+
+            <hr>
+            
+            <label id = "autonomous_abilities_label_id" for = "autonomous_abilities"><b>Autonomous Abilities</b></label>
+            <input id = "autonomous_abilities_id" name = "autonomous_abilities" type = "text" placeholder= "Enter text">
+            <br>
+            
+        </form>
+
+        <div style = "text-align:center;"> <!--This is needed to align elements at the center.-->
+        <button id = "pit_submit" class = "pitSubmitButton">Submit</button>
+        </div>
+        
+    </body>
+
+</html>
