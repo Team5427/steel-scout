@@ -2,6 +2,7 @@ $(window).on('load', function(){
 	load_teams();
 })
 
+var result;
 function error(jqXHR, textStatus, errorThrown, result) {
 	console.log("FAILURE");
 	$('#result').html('<p>status code: </p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div></div>');
@@ -45,7 +46,7 @@ function load_teams(){
 					$.get(this.href, function (html) {
 						$('#modal').modal();
 						$('#modal').data("team_id", team.team_id);
-						$('#m_info').html("The FRC team: <b>" + team.team_number +'</b>')
+						$('#m_info').html("The FRC team: <b>" + team.team_name +'</b>')
 					});
 				}
 				delbutton.type = "submit";
@@ -69,10 +70,11 @@ function addNewTeam(){
 
 $(document).ready(function (e) {
 	$('#submit').on('click', function () {
-		var team = $('#modal').data('team')
+		var team_id = $('#modal').data('team_id')
+		console.log(team_id);
 		$.ajax({
 			url: '../includes/delete_teams.php',
-			data: { team: team },
+			data: { team_id },
 			type: "POST", //or type:"GET" or type:"PUT"
 			success: function (result) {
 				console.log(result);

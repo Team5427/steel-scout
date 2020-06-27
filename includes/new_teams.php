@@ -8,9 +8,8 @@
     $team_number = $_POST['team_number'];
     $team_name = $_POST['team_name'];
 
-
     //looking for all users username
-    $sql = "SELECT * FROM teams WHERE team_number= \"$team_number\",\"$team_name\"";
+    $sql = "SELECT * FROM teams WHERE team_number= \"$team_number\" OR team_name=\"$team_name\"";
     $res = mysqli_query($connection, $sql);
 
     //collects all users

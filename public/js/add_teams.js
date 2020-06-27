@@ -13,8 +13,9 @@ function addTeam(){
 		data: {team_number,team_name},
 		type: "POST", //or type:"GET" or type:"PUT"
 		success: function (result) {
-			
 			result = JSON.parse(result);
+			console.log(result)
+
 			console.log(team_number);
 			console.log(team_name);
 

@@ -13,7 +13,6 @@
     $sql = "SELECT * FROM teams";
     $res = mysqli_query($connection, $sql);
 
-
     $rows = [];
     //collects all users
     if(mysqli_num_rows($res)>0){

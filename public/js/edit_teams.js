@@ -10,8 +10,8 @@ $(document).ready(function () {
         success: function (result) {
             console.log(result);
             result = JSON.parse(result);
-            $("#editTeamNumber").val(result.teamnum)
-
+            $("#editTeamNumber").val(result.team_number)
+            $('#editTeamName').val(result.team_name)
         },
         error: error()
     });  
@@ -31,11 +31,12 @@ function error(jqXHR, textStatus, errorThrown, result) {
 }
 
 function editTeam() {
-    var team_number = document.getElementById("editTeamNumber").value;
+    var team_number = $('#editTeamNumber').val()
+    var team_name = $('#editTeamName').val()
     console.log("Confirmed!")
     $.ajax({
         url: '../includes/edit_teams.php',
-        data: {team_number, sender: "update", oldID: getIDFromURL()},
+        data: {team_number, team_name, sender: "update", oldID: getIDFromURL()},
         type: "POST",
         success: function (result) {
             console.log(result);
