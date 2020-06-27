@@ -3,9 +3,8 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./css/forms.css">
   <link rel="stylesheet" type="text/css" href="./css/navbar.css" />
-  <link rel="stylesheet" type="text/css" href="./css/scouters.css" />
+  <link rel="stylesheet" type="text/css" href="./css/manage.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
 
@@ -21,17 +20,16 @@
   <form class="users_form">
     <div id="users_container" class="container">
       <h1 class="title">Competitions</h1>
-      <hr>
       <div class="input_container">
         <br />
-        <button name="add user" type="button" onclick="addCompetition()">Add Competition</button>
+        <button name="add user" type="button" class="addbtn" onclick="addCompetition()">Add Competition</button>
       </div>
 
       <div class="table-wrapper">
         <table class="fl-table">
           <thead>
             <tr>
-              <th>Competition Name</th>
+              <th>Name</th>
               <th>Date</th>
               <th>Season</th>
             </tr>

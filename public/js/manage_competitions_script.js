@@ -57,7 +57,7 @@ function load_competitions() {
 
 				var del = document.createElement("td");
 				var delbutton = document.createElement("input");
-				delbutton.className = "delete btn";
+				delbutton.className = "delete editbutton btn";
 				$(delbutton).attr('rel', "modal:open")
 				delbutton.value = "Delete";
 				delbutton.onclick = function () {
@@ -79,7 +79,7 @@ function load_competitions() {
 				editbutton.id = "edit" + comp.competition_id;
 				editbutton.onclick = function () {
 					event.preventDefault();
-					window.location.assign("edit_competition.html?compid=" + comp.competition_id);
+					window.location.assign("edit_competitions.html?compid=" + comp.competition_id);
 				}
 
 				edit.appendChild(editbutton);
