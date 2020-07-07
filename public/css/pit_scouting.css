@@ -1,0 +1,36 @@
+#pitScoutingForm{
+    width: 90%;
+    margin: 10px auto;
+  }
+
+#pit_scout_error_message_id{
+    color: #ef2323; 
+  }
+
+.pitScoutSubmitButton:hover {
+   opacity:1;
+}
+
+.pitSubmitButton
+{
+  background-color: #4d4dff;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 80%;
+  opacity: 0.9;
+}
+
+.pitClearButton
+{
+  background-color: #4d4dff;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 80%;
+  opacity: 0.9;
+}

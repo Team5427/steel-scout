@@ -1,6 +1,13 @@
-window.onload = function() {
-	document.getElementById("pit_submit").onclick = function() 
+window.onload = function()
+{
+	$("#pit_cancel").click(function() 
 	{
+		document.getElementById("pitScoutingForm").reset();
+	});
+	
+	$("#pit_submit").click(function() 
+	{
+		console.log("clicked");
 
 		$.ajax({
 			url: "../includes/add_pit_scouting.php",
@@ -37,5 +44,6 @@ window.onload = function() {
 			}
 		});
 		return false;
-	};
+	});
 }
+

@@ -5,6 +5,7 @@
         <script src= "https://code.jquery.com/jquery-1.10.2.js"></script>
         <link rel= "stylesheet" type = "text/css" href= "./css/forms.css">
         <link rel= "stylesheet" type = "text/css" href= "./css/scouting.css">
+        <link rel= "stylesheet" type = "text/css" href= "./css/pit_scouting.css">
         <script type = "text/javascript" src = "js/add_pit_scouting.js"></script>
     </head>
     <body>
@@ -65,13 +66,10 @@
             <label id = "autonomous_abilities_label_id" for = "autonomous_abilities"><b>Autonomous Abilities</b></label>
             <input id = "autonomous_abilities_id" name = "autonomous_abilities" type = "text" placeholder= "Enter text">
             <br>
-            
-        </form>
-
-        <div style = "text-align:center;"> <!--This is needed to align elements at the center.-->
-        <button id = "pit_submit" class = "pitSubmitButton">Submit</button>
-        </div>
         
+            <div style = "text-align:center;"></div> <!--This is needed to align elements at the center.-->
+            <button id = "pit_submit" class = "pitSubmitButton">Submit</button>
+            <button id = "pit_cancel" class = "pitClearButton">Clear</button> <!--This clears the form.-->
+        </form>
     </body>
-
 </html>
